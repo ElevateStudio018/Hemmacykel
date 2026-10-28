@@ -56,14 +56,13 @@ REPAIRS = [  # (värde i bokningen, namn, pris)
     ("ovrigt", "Övrigt / vet inte", 0),
 ]
 
-SERVICES = [  # (värde i bokningen, namn, beskrivning, pris, bild)
-    ("punktering", "Punktering", "Vi lagar eller byter slang på plats.", 299, "tjanst-punktering.jpg"),
-    ("dackbyte", "Däckbyte", "Byte av däck, fram eller bak.", 349, "tjanst-dack.jpg"),
-    ("kedjebyte", "Kedjebyte", "Byte och service av kedja.", 299, "tjanst-kedja.jpg"),
-    ("bromsjustering", "Bromsjustering", "Justering av bromsarna.", 199, "tjanst-service.jpg"),
-    ("bromsklossar", "Byte av bromsklossar", "Nya bromsklossar och justering.", 249, "tjanst-bromsar.jpg"),
-    ("bromsvajer", "Byte av bromsvajer", "Ny vajer och justering.", 249, "cyklar/bike3-6.jpg"),
-    ("ovrigt", "Övrigt", "Något annat? Beskriv problemet så ger vi ett prisförslag.", 0, "tjanst-ovrigt.jpg"),
+TILES = [  # (parameter, värde i bokningen, rubrik, text, pris, bild)
+    ("tjanst", "punktering", "Punktering", "Vi lagar eller byter slang på plats.", "299 kr", "tjanst-punktering.jpg"),
+    ("tjanst", "dackbyte", "Däckbyte", "Byte av däck, fram eller bak.", "349 kr", "tjanst-dack.jpg"),
+    ("tjanst", "kedjebyte", "Kedjebyte", "Byte och service av kedja.", "299 kr", "tjanst-kedja.jpg"),
+    ("tjanst", "bromsjustering", "Bromsar", "Justering, nya klossar eller ny vajer.", "från 199 kr", "tjanst-bromsar.jpg"),
+    ("paket", "cykelcheck", "Service", "Genomgång och säkerhetskontroll av hela cykeln.", "från 499 kr", "tjanst-service.jpg"),
+    ("tjanst", "ovrigt", "Övrigt", "Något annat? Beskriv problemet så ger vi ett prisförslag.", "Prisförslag", "tjanst-ovrigt.jpg"),
 ]
 
 PACKAGES = [
@@ -144,7 +143,7 @@ def header(home, current):
     <nav class="mainnav" aria-label="Huvudmeny">{links}</nav>
     <div class="nav-cta">
       <a class="nav-tel" href="tel:{TEL}">{PHONE}</a>
-      <a class="btn btn-ink btn-sm" href="boka.html">Boka service</a>
+      <a class="btn btn-ink btn-s" href="boka.html">Boka service</a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Meny">{ico("menu", "i i-open")}{ico("x", "i i-close")}</button>
     </div>
   </div>
@@ -152,41 +151,32 @@ def header(home, current):
     <div class="wrap">
       <ul>{drawer}</ul>
       <div class="drawer-cta"><a class="btn btn-ink" href="boka.html">Boka service {ico("arrow")}</a><a class="btn btn-line" href="tel:{TEL}">Ring {PHONE}</a></div>
-      <p class="label">Vardagar 15–19 · Helger 9–19</p>
+      <p class="muted">Vardagar 15–19 · Helger 9–19</p>
     </div>
   </div>
 </header>'''
 
 
 def footer(home, cta=True):
-    end = f'''<section class="end"><div class="wrap">
-  <p class="label">Boka</p>
-  <h2>Redo att få cykeln fixad?</h2>
-  <p class="end-lead">Boka en tid och få vardagen att rulla igen. Vi kommer till dig – vardagar 15–19, helger 9–19.</p>
-  <div class="end-cta"><a class="btn btn-lime" href="boka.html">Boka service {ico("arrow")}</a><a class="btn btn-line-light" href="tel:{TEL}">Ring {PHONE}</a></div>
+    end = f'''<section class="cta"><div class="wrap cta-in">
+  <div><h2>Redo att få cykeln fixad?</h2><p>Boka en tid och få vardagen att rulla igen. Vi kommer till dig – vardagar 15–19, helger 9–19.</p></div>
+  <div class="btns"><a class="btn btn-lime" href="boka.html">Boka service {ico("arrow")}</a><a class="btn btn-ghost" href="tel:{TEL}">Ring {PHONE}</a></div>
 </div></section>''' if cta else ""
-    return f'''<div class="dark">
-{end}<footer class="foot-wrap"><div class="wrap foot">
-  <div class="foot-brand">
-    <a class="logo" href="index.html" aria-label="Hemmacykel, till startsidan">{logo(True)}</a>
-    <p>Mobil cykelverkstad i Uppsala. Vi kommer hem till dig och fixar cykeln på plats.</p>
+    return f'''{end}
+<footer class="foot"><div class="wrap">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <a class="logo" href="index.html" aria-label="Hemmacykel, till startsidan">{logo()}</a>
+      <p>Mobil cykelverkstad i Uppsala. Vi kommer hem till dig och fixar cykeln på plats.</p>
+      <a class="foot-rate" href="{MAPS}" target="_blank" rel="noopener"><span class="st">★★★★★</span> {RATING} på Google · {REVIEW_COUNT} omdömen</a>
+    </div>
+    <div><h4>Kontakt</h4><ul><li><a href="tel:{TEL}">{PHONE}</a></li><li><a href="mailto:{MAIL}">{MAIL}</a></li><li>{STREET}, {ZIP_CITY}</li><li>Vardagar 15–19, helger 9–19</li></ul></div>
+    <div><h4>Sidor</h4><ul><li><a href="boka.html">Boka service</a></li><li><a href="{nav_href("tjanster", home)}">Tjänster och priser</a></li>
+      <li><a href="{nav_href("omdomen", home)}">Omdömen</a></li><li><a href="cyklar.html">Cyklar till salu</a></li><li><a href="{nav_href("fragor", home)}">Vanliga frågor</a></li></ul></div>
+    <div><h4>Juridiskt</h4><ul><li><a href="integritetspolicy.html">Integritetspolicy</a></li><li><a href="villkor.html">Användarvillkor</a></li><li><a href="cookies.html">Cookie-policy</a></li></ul></div>
   </div>
-  <div>
-    <h4>Kontakt</h4>
-    <ul><li><a href="tel:{TEL}">{PHONE}</a></li><li><a href="mailto:{MAIL}">{MAIL}</a></li><li>{STREET}, {ZIP_CITY}</li></ul>
-  </div>
-  <div>
-    <h4>Sidor</h4>
-    <ul><li><a href="boka.html">Boka service</a></li><li><a href="{nav_href("tjanster", home)}">Tjänster och priser</a></li>
-    <li><a href="{nav_href("omdomen", home)}">Omdömen</a></li><li><a href="cyklar.html">Cyklar till salu</a></li></ul>
-  </div>
-  <div>
-    <h4>Juridiskt</h4>
-    <ul><li><a href="integritetspolicy.html">Integritetspolicy</a></li><li><a href="villkor.html">Användarvillkor</a></li><li><a href="cookies.html">Cookie-policy</a></li></ul>
-  </div>
-  <div class="foot-bot"><p>© 2026 Hemmacykel. Hobbyverksamhet.</p><p><a href="{MAPS}" target="_blank" rel="noopener">{RATING} på Google · {REVIEW_COUNT} omdömen</a></p></div>
-</div></footer>
-</div>'''
+  <p class="foot-bot">© 2026 Hemmacykel. Alla rättigheter förbehållna. Hobbyverksamhet.</p>
+</div></footer>'''
 
 
 JSONLD_BUSINESS = {
@@ -228,7 +218,7 @@ def page(name, title, desc, body, home=False, head="", cta=True):
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{url}">
-<meta name="theme-color" content="#f4f3ee">
+<meta name="theme-color" content="#ffffff">
 <meta name="geo.region" content="SE-C"><meta name="geo.placename" content="Uppsala">
 <meta property="og:site_name" content="Hemmacykel"><meta property="og:locale" content="sv_SE"><meta property="og:type" content="website">
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}">
@@ -237,7 +227,7 @@ def page(name, title, desc, body, home=False, head="", cta=True):
 <link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="assets/site.css">
 {head}</head>
 <body>
@@ -263,139 +253,119 @@ def page_head(h1, lead="", crumb=None, extra=""):
 </div></section>'''
 
 
-def sec_head(label, h2, text=""):
-    p = f"<p>{text}</p>" if text else ""
-    return f'<header class="sec-h"><p class="label">{label}</p><div><h2>{h2}</h2>{p}</div></header>'
+def sec_head(kick, h2, side=""):
+    if side and not side.startswith("<"):
+        side = f"<p>{side}</p>"
+    return f'<div class="sh"><div><p class="kick">{kick}</p><h2>{h2}</h2></div>{side}</div>'
+
+
+def price_calc():
+    svc = ('<optgroup label="Reparationer">'
+           + "".join(f'<option value="{v}" data-price="{p}">{n}{f" – {kr(p)}" if p else ""}</option>' for v, n, p in REPAIRS)
+           + '</optgroup><optgroup label="Servicepaket">'
+           + "".join(f'<option value="{v}" data-price="{p}">{n} – {kr(p)}</option>' for v, n, p, *_ in PACKAGES)
+           + "</optgroup>")
+    typ = "".join(f'<option value="{v}" data-add="{a}">{n}{f" (+{a} kr)" if a else ""}</option>' for v, n, a in BIKE_TYPES)
+    first = REPAIRS[0][2]
+    return f'''<form class="calc" action="boka.html" method="get" data-calc>
+  <label class="calc-f"><span>Vad behöver fixas?</span><select name="tjanst">{svc}</select></label>
+  <label class="calc-f"><span>Typ av cykel</span><select name="typ">{typ}</select></label>
+  <p class="calc-p"><span>Uppskattat pris</span><b data-calc-total aria-live="polite">{kr(first)}</b></p>
+  <button class="btn btn-lime" type="submit">Boka {ico("arrow")}</button>
+</form>'''
 
 
 # --- startsidan -----------------------------------------------------------------------
 def bike_card(b):
-    state = '<span class="state sold">Såld</span>' if b["sold"] else '<span class="state">Till salu</span>'
-    return f'''<a class="bc{" is-sold" if b["sold"] else ""}" href="cyklar.html#{b["id"]}">
-  <span class="ph"><img src="img/cyklar/{b["images"][0]}" alt="{e(b["title"])}" loading="lazy">{state}</span>
-  <span class="bc-row"><span class="bc-t">{e(b["title"])}</span><span class="bc-p">{kr(b["price"])}</span></span>
-  <span class="bc-m">{e(b["size"])} · {e(b["condition"])}</span>
+    return f'''<a class="bc{" sold" if b["sold"] else ""}" href="cyklar.html#{b["id"]}">
+  <span class="ph"><img src="img/cyklar/{b["images"][0]}" alt="{e(b["title"])}" loading="lazy"><span class="state">{"Såld" if b["sold"] else "Till salu"}</span></span>
+  <span class="row"><b>{e(b["title"])}</b><span class="pr">{kr(b["price"])}</span></span>
+  <small>{e(b["size"])} · {e(b["condition"])}</small>
 </a>'''
 
 
 def index():
-    svc_imgs = "".join(
-        f'<img src="img/{img}" alt="" data-for="{v}"{" class=\"on\"" if i == 0 else ""} loading="lazy">'
-        for i, (v, _, _, _, img) in enumerate(SERVICES))
-    svc_rows = "".join(
-        f'<li><a href="boka.html?tjanst={v}" data-svc="{v}"{" class=\"on\"" if i == 0 else ""}><span class="svc-n">{n}</span><span class="svc-d">{d}</span>'
-        f'<span class="svc-p">{kr(p) if p else "Prisförslag"}</span>{ico("arrow", "i svc-a")}</a></li>'
-        for i, (v, n, d, p, _) in enumerate(SERVICES))
-
-    plans = ""
-    for slug, name, price, for_who, items in PACKAGES:
-        hl = slug == FEATURED
-        plans += f'''<article class="pk-i">
-  <div class="pk-top"><h3>{name}</h3>{'<span class="tag">Populärast</span>' if hl else ""}</div>
-  <p class="pk-for">{for_who}</p>
-  <p class="pk-price">{price}<span>kr</span></p>
-  <p class="pk-vat">Fast pris inkl. moms, arbete och material</p>
+    tiles = "".join(
+        f'<a href="boka.html?{par}={v}"><img src="img/{img}" alt="" loading="lazy">'
+        f'<span class="t"><span class="row"><b>{n}</b><span class="pr">{p}</span></span><small>{d}</small></span></a>'
+        for par, v, n, d, p, img in TILES)
+    plans = "".join(
+        f'''<article{' class="hl"' if slug == FEATURED else ""}>
+  <div class="top"><h3>{name}</h3>{'<span class="tag">Populärast</span>' if slug == FEATURED else ""}</div>
+  <p class="for">{for_who}</p><p class="amt">{price}<span>kr</span></p><p class="vat">Fast pris inkl. moms, arbete och material</p>
   <ul>{"".join(f"<li>{e(i)}</li>" for i in items)}</ul>
-  <a class="btn {"btn-ink" if hl else "btn-line"}" href="boka.html?paket={slug}">Boka {name} {ico("arrow")}</a>
-</article>'''
-
-    steps = "".join(f'<li><span class="n">Steg {i + 1}</span><h3>{t}</h3><p>{s}</p></li>' for i, (t, s) in enumerate(STEPS))
-    big_name, big_text = REVIEWS[0]
+  <a class="btn {"btn-lime" if slug == FEATURED else "btn-line"}" href="boka.html?paket={slug}">Boka {name} {ico("arrow")}</a>
+</article>''' for slug, name, price, for_who, items in PACKAGES)
+    steps = "".join(f'<li><span class="n">{i + 1}</span><h3>{t}</h3><p>{s}</p></li>' for i, (t, s) in enumerate(STEPS))
     reviews = "".join(
-        f'<figure><blockquote>{e(t)}</blockquote><figcaption><b>{e(n)}</b> · Google</figcaption></figure>' for n, t in REVIEWS[1:])
+        f'<figure><span class="st">★★★★★</span><blockquote>”{e(t)}”</blockquote><figcaption><b>{e(n)}</b> · Google</figcaption></figure>'
+        for n, t in REVIEWS[:6])
     faq = "".join(f'<details><summary>{e(q)}<span class="pm" aria-hidden="true"></span></summary><p>{e(a)}</p></details>' for q, a in FAQ)
     bikes = "".join(bike_card(b) for b in BIKES[:3])
+    score = (f'<div class="score"><b>{RATING}</b><span><span class="st">★★★★★</span>{REVIEW_COUNT} omdömen på Google<br>'
+             f'<a href="{MAPS}" target="_blank" rel="noopener">Läs alla {ico("arrow-ur")}</a></span></div>')
 
-    body = f'''<section class="hero"><div class="wrap hero-g">
-  <div class="hero-t">
-    <h1><span class="pre">Cykelservice i Uppsala</span>Få vardagen att rulla igen.</h1>
+    body = f'''<section class="hero">
+  <img class="hero-bg" src="img/hemmacykel-hero.jpg" alt="Hemmacykel servar en cykel på plats vid ett cykelställ i Uppsala" width="1170" height="1560" fetchpriority="high">
+  <div class="wrap hero-c">
+    <p class="kick">Mobil cykelservice i Uppsala</p>
+    <h1>Få vardagen att rulla igen.</h1>
     <p class="lead">Vi kommer hem till dig och fixar cykeln där den står. Fasta priser, inga gömda avgifter.</p>
-    <div class="hero-cta"><a class="btn btn-ink" href="boka.html">Boka service {ico("arrow")}</a><a class="link" href="tel:{TEL}">eller ring {PHONE}</a></div>
-    <dl class="facts">
-      <div><dt>{STARS} {RATING}</dt><dd><a href="#omdomen">{REVIEW_COUNT} omdömen på Google</a></dd></div>
-      <div><dt>Från 199 kr</dt><dd>Fasta priser inkl. moms</dd></div>
-      <div><dt>7 dagar i veckan</dt><dd>Vardagar 15–19, helger 9–19</dd></div>
-    </dl>
+    {price_calc()}
+    <div class="hero-meta"><span><span class="st">★★★★★</span> {RATING} på Google · {REVIEW_COUNT} omdömen</span><span>Inkl. moms. Reseavgift kan tillkomma.</span></div>
   </div>
-  <figure class="hero-f">
-    <img src="img/hemmacykel-hero.jpg" alt="Hemmacykel servar en cykel på plats vid ett cykelställ i Uppsala" width="1170" height="1560" fetchpriority="high">
-    <figcaption class="cap"><span>Service på plats</span><span>Uppsala</span></figcaption>
-  </figure>
-</div></section>
+</section>
 
 <section class="sec" id="tjanster"><div class="wrap">
   {sec_head("Tjänster och priser", "Fast pris på det vanligaste.", "Du ser alltid priset innan vi börjar. Priserna gäller inklusive moms, arbete och material.")}
-  <div class="svc">
-    <figure class="svc-fig" aria-hidden="true">{svc_imgs}</figure>
-    <ul class="svc-list">{svc_rows}</ul>
-    <p class="svc-note">Vi tar både vanliga cyklar och elcyklar. Tillägg: elcykel, lådcykel och andra tyngre cyklar +50 kr, elsparkcykel +100 kr.
-    Vid över 15 minuters körtid tillkommer 50 kr i reseavgift, vid över 25 minuter 100 kr.</p>
-  </div>
+  <div class="svc">{tiles}</div>
+  <p class="note">Elcykel, lådcykel och andra tyngre cyklar +50 kr · elsparkcykel +100 kr · reseavgift 50 kr vid över 15 min körtid, 100 kr vid över 25 min.</p>
 </div></section>
 
-<section class="sec" id="paket"><div class="wrap">
+<section class="sec alt" id="paket"><div class="wrap">
   {sec_head("Servicepaket", "Hela cykeln genomgången, till fast pris.", "Välj rätt nivå direkt och slipp gömda avgifter eller oväntade tillägg.")}
   <div class="pk">{plans}</div>
 </div></section>
 
 <section class="sec" id="sa-funkar-det"><div class="wrap">
-  {sec_head("Så funkar det", "Från trasig till rullande på tre steg.")}
+  {sec_head("Så funkar det", "Från trasig till rullande på tre steg.", f'<a class="btn btn-ink" href="boka.html">Boka nu {ico("arrow")}</a>')}
   <ol class="steps">{steps}</ol>
 </div></section>
 
-<section class="sec dark" id="om-oss"><div class="wrap">
-  <div class="about">
-    <p class="label">Om oss</p>
-    <p class="about-q">Vi är två unga entreprenörer från Uppsala. Vi startade Hemmacykel för att ge Uppsalabor mer tid och mindre krångel.</p>
-    <figure class="about-img">
-      <img src="img/hemmacykel-team.jpg" alt="Grundarna av Hemmacykel vid Ångströmlaboratoriet, Uppsala universitet" loading="lazy" width="1170" height="1560">
-      <figcaption class="cap"><span>Grundarna</span><span>Ångströmlaboratoriet, Uppsala</span></figcaption>
-    </figure>
-    <div class="about-b">
-      <p>Cykeln tar dig till jobbet, träningen, kompisarna och familjen. När den går sönder förlorar du tid, frihet och en del av det som får vardagen att fungera.</p>
-      <p>Därför ska cykelservice passa din vardag – inte tvärtom. En bokning, en tid som passar dig, och sedan fungerar cykeln igen.</p>
-      <dl class="kv">
-        <div><dt>Område</dt><dd>Hela Uppsala – Centrum, Luthagen, Flogsta, Sala backe, Gottsunda, Sävja, Årsta, Sunnersta m.fl.</dd></div>
-        <div><dt>Tider</dt><dd>Vardagar 15–19, helger 9–19</dd></div>
-        <div><dt>Cyklar</dt><dd>Vanliga cyklar, elcyklar, lådcyklar, fatbikes och elsparkcyklar</dd></div>
-        <div><dt>Betalning</dt><dd>Swish på plats när jobbet är klart</dd></div>
-      </dl>
-    </div>
+<section class="sec alt" id="om-oss"><div class="wrap about">
+  <img src="img/hemmacykel-team.jpg" alt="Grundarna av Hemmacykel vid Ångströmlaboratoriet, Uppsala" loading="lazy" width="1170" height="1560">
+  <div>
+    <p class="kick">Om oss</p>
+    <h2>Två unga entreprenörer från Uppsala.</h2>
+    <p>Vi startade Hemmacykel för att ge Uppsalabor mer tid och mindre krångel. En bokning, en tid som passar dig, och sedan fungerar cykeln igen.</p>
+    <p>Cykeln tar dig till jobbet, träningen, kompisarna och familjen. Därför ska cykelservice passa din vardag – inte tvärtom.</p>
+    <ul class="facts">
+      <li><small>Område</small>Hela Uppsala – Centrum, Luthagen, Flogsta, Sala backe, Gottsunda, Sävja, Årsta m.fl.</li>
+      <li><small>Tider</small>Vardagar 15–19, helger 9–19</li>
+      <li><small>Cyklar</small>Vanliga cyklar, elcyklar, lådcyklar, fatbikes och elsparkcyklar</li>
+      <li><small>Betalning</small>Swish på plats när jobbet är klart</li>
+    </ul>
   </div>
 </div></section>
 
 <section class="sec" id="omdomen"><div class="wrap">
-  <div class="rev">
-    <div class="rev-score">
-      <p class="label">Omdömen</p>
-      <p class="score">{RATING}</p>
-      {STARS}
-      <p>Snittbetyg från {REVIEW_COUNT} omdömen på Google.</p>
-      <a class="link" href="{MAPS}" target="_blank" rel="noopener">Läs alla på Google {ico("arrow-ur")}</a>
-    </div>
-    <figure class="rev-big">
-      <blockquote>”{e(big_text)}”</blockquote>
-      <figcaption><b>{e(big_name)}</b> · Google</figcaption>
-    </figure>
-    <div class="rev-grid">{reviews}</div>
-  </div>
+  {sec_head("Omdömen", "Vad kunderna i Uppsala säger.", score)}
+  <div class="rv">{reviews}</div>
 </div></section>
 
-<section class="ref-wrap"><div class="wrap ref">
-  <p class="label">Tipsa en kompis</p>
-  <div class="ref-t"><b>Ge en kompis 100 kr – och få 100 kr själv.</b>
+<section class="sec sec-tight"><div class="wrap"><div class="refer">
+  <div><p class="kick">Tipsa en kompis</p><h2>Ge en kompis 100 kr – och få 100 kr själv.</h2>
   <p>Efter besöket får du en personlig kod. När en kompis bokar med din kod får hen 100 kr rabatt, och du får 100 kr rabatt på ditt nästa besök.</p></div>
-  <a class="link" href="boka.html">Boka med kod {ico("arrow")}</a>
+  <a class="btn btn-ink" href="boka.html">Boka med kod {ico("arrow")}</a>
+</div></div></section>
+
+<section class="sec alt" id="cyklar"><div class="wrap">
+  {sec_head("Cyklar till salu", "Begagnat, genomgånget och redo att rulla.", f'<a class="btn btn-line" href="cyklar.html">Alla cyklar {ico("arrow")}</a>')}
+  <div class="bikes">{bikes}</div>
 </div></section>
 
-<section class="sec" id="cyklar"><div class="wrap">
-  {sec_head("Cyklar till salu", "Begagnat, genomgånget och redo att rulla.", "Vi köper, servar och säljer begagnade cyklar i Uppsala. Alla cyklar är genomgångna av oss innan de säljs.")}
-  <div class="bc-grid">{bikes}</div>
-  <p class="more"><a class="link" href="cyklar.html">Alla cyklar {ico("arrow")}</a></p>
-</div></section>
-
-<section class="sec" id="fragor"><div class="wrap">
-  {sec_head("Vanliga frågor", "Frågor och svar.", f'Hittar du inte svaret? Ring <a href="tel:{TEL}">{PHONE}</a> eller mejla <a href="mailto:{MAIL}">{MAIL}</a>.')}
+<section class="sec" id="fragor"><div class="wrap faq">
+  <div><p class="kick">Vanliga frågor</p><h2>Frågor och svar.</h2><p class="muted">Hittar du inte svaret? Ring <a href="tel:{TEL}">{PHONE}</a> eller mejla <a href="mailto:{MAIL}">{MAIL}</a>.</p></div>
   <div class="qa">{faq}</div>
 </div></section>'''
     page("index.html", "Cykelservice Uppsala – Mobil cykelverkstad | Hemmacykel",
@@ -417,10 +387,10 @@ def boka():
         f'<label class="chip"><input type="radio" name="typ" value="{v}" data-name="{e(n)}" data-add="{a}"{" checked" if not i else ""}>'
         f'<span>{e(n)}{f" <em>+{a} kr</em>" if a else ""}</span></label>' for i, (v, n, a) in enumerate(BIKE_TYPES))
 
-    body = page_head("Boka service", "Tre korta steg. Vi bekräftar tid och pris via telefon eller e-post innan vi kommer.") + f'''
+    body = page_head("Boka service", "Tre korta steg. Priset räknas ut medan du väljer, och vi bekräftar tid och pris innan vi kommer.") + f'''
 <section class="wrap booking">
   <form id="booking" class="bk-form" novalidate data-mail="{MAIL}">
-    <ol class="bk-steps"><li class="on"><span>Steg 1</span>Tjänst</li><li><span>Steg 2</span>Tid och plats</li><li><span>Steg 3</span>Kontakt</li></ol>
+    <ol class="bk-steps"><li class="on"><span>1</span>Tjänst</li><li><span>2</span>Tid och plats</li><li><span>3</span>Kontakt</li></ol>
     <noscript><p class="bk-err">Bokningen kräver JavaScript. Ring oss på {PHONE} eller mejla {MAIL} så bokar vi åt dig.</p></noscript>
 
     <fieldset class="bk-step" data-step="0">
@@ -432,7 +402,7 @@ def boka():
       <div class="opts">{pkgs}</div>
       <h3 class="bk-h">Typ av cykel</h3>
       <div class="chips">{types}</div>
-      <label class="fld"><span>Beskriv problemet <small>(valfritt)</small></span><textarea name="beskrivning" rows="2" placeholder="T.ex. bakdäcket tappar luft och växlarna hoppar."></textarea></label>
+      <label class="fld"><span>Beskriv problemet <small>(valfritt)</small></span><textarea name="beskrivning" rows="3" placeholder="T.ex. bakdäcket tappar luft och växlarna hoppar."></textarea></label>
     </fieldset>
 
     <fieldset class="bk-step" data-step="1" hidden>
@@ -464,7 +434,7 @@ def boka():
     </div>
 
     <div class="bk-done" hidden tabindex="-1">
-      <p class="label">Nästan klart</p>
+      <span class="done-ico">{ico("check")}</span>
       <h2>Tack! Nu öppnas ditt mejlprogram.</h2>
       <p>Skicka mejlet så är din bokningsförfrågan hos oss. Vi återkommer via e-post eller telefon för att bekräfta tid och pris.</p>
       <p>Öppnades inget mejl? Ring oss på <a href="tel:{TEL}">{PHONE}</a> eller skicka uppgifterna nedan till <a href="mailto:{MAIL}">{MAIL}</a>.</p>
@@ -473,7 +443,7 @@ def boka():
   </form>
 
   <aside class="bk-sum" aria-live="polite">
-    <p class="label">Din bokning</p>
+    <h3>Din bokning</h3>
     <ul class="sum-list" id="sum-list"><li class="empty">Inget valt ännu</li></ul>
     <div class="sum-meta" id="sum-meta"></div>
     <div class="sum-total"><span>Uppskattat pris</span><b id="sum-total">–</b></div>
@@ -500,19 +470,18 @@ def cyklar():
         if b["sold"]:
             foot = '<p class="bike-f muted">Såld. Nya cyklar läggs upp löpande.</p>'
         else:
-            foot = (f'<div class="bike-f"><a class="btn btn-ink btn-sm" href="tel:{TEL}">Ring och köp</a>'
-                    f'<a class="btn btn-line btn-sm" href="mailto:{MAIL}?subject={quote("Intresserad av " + b["title"])}">Mejla om cykeln</a></div>')
-        state = '<span class="state sold">Såld</span>' if b["sold"] else '<span class="state">Till salu</span>'
-        cards += f'''<article class="bike{" is-sold" if b["sold"] else ""}" id="{b["id"]}">
+            foot = (f'<div class="bike-f"><a class="btn btn-ink btn-s" href="tel:{TEL}">Ring och köp</a>'
+                    f'<a class="btn btn-line btn-s" href="mailto:{MAIL}?subject={quote("Intresserad av " + b["title"])}">Mejla om cykeln</a></div>')
+        cards += f'''<article class="bike{" sold" if b["sold"] else ""}" id="{b["id"]}">
   <div class="gal" data-car>
     <div class="gal-track" data-track tabindex="0" aria-label="Bilder på {e(b["title"])}">{imgs}</div>
-    {state}
+    <span class="state">{"Såld" if b["sold"] else "Till salu"}</span>
     <button type="button" class="gal-btn prev" data-prev aria-label="Föregående bild">{ico("left")}</button>
     <button type="button" class="gal-btn next" data-next aria-label="Nästa bild">{ico("right")}</button>
     <span class="gal-count" data-count>1 / {len(b["images"])}</span>
   </div>
   <div class="bike-b">
-    <div class="bike-top"><h2>{e(b["title"])}</h2><span class="bike-p">{kr(b["price"])}</span></div>
+    <div class="row"><h2>{e(b["title"])}</h2><span class="pr">{kr(b["price"])}</span></div>
     <p class="meta">{e(b["brand"])} · {e(b["size"])} · {e(b["condition"])} · {e(b["location"])}</p>
     <p class="intro">{e(b["intro"])}</p>
     <details class="bike-more"><summary>Vad som är gjort<span class="pm" aria-hidden="true"></span></summary>{lists}</details>
@@ -523,12 +492,11 @@ def cyklar():
                      "Vi köper, servar och säljer begagnade cyklar i Uppsala. Alla cyklar är genomgångna av oss innan de säljs. "
                      "Hämtas i Uppsala – provkör gärna innan du köper.") + f'''
 <section class="wrap">
-  <div class="bikes">{cards}</div>
-  <div class="sell">
-    <p class="label">Inget som passar?</p>
-    <div><h2>Letar du efter något specifikt – eller vill du sälja din cykel?</h2>
-    <p>Vi köper begagnade cyklar och har ofta fler på gång än det som syns här. Hör av dig så berättar vi vad vi har.</p>
-    <p class="sell-cta"><a class="btn btn-ink" href="tel:{TEL}">Ring {PHONE}</a><a class="btn btn-line" href="mailto:{MAIL}">Mejla oss</a></p></div>
+  <div class="bikes-page">{cards}</div>
+  <div class="refer">
+    <div><p class="kick">Inget som passar?</p><h2>Letar du efter något specifikt – eller vill du sälja din cykel?</h2>
+    <p>Vi köper begagnade cyklar och har ofta fler på gång än det som syns här. Hör av dig så berättar vi vad vi har.</p></div>
+    <div class="btns"><a class="btn btn-ink" href="tel:{TEL}">Ring {PHONE}</a><a class="btn btn-line" href="mailto:{MAIL}">Mejla oss</a></div>
   </div>
   <p class="fine">Cyklarna säljs som privatköp. Du har möjlighet att inspektera och provköra cykeln innan köpet genomförs. Läs mer i <a href="villkor.html">användarvillkoren</a>.</p>
 </section>'''
@@ -600,7 +568,7 @@ def legal():
         nav = "".join(f'<li><a href="{n}"{" aria-current=\"page\"" if n == name else ""}>{t}</a></li>' for n, (t, *_) in LEGAL.items())
         body = page_head(h1, crumb=h1) + f'''
 <section class="wrap legal">
-  <nav class="legal-nav" aria-label="Juridiskt"><p class="label">Juridiskt</p><ul>{nav}</ul></nav>
+  <nav class="legal-nav" aria-label="Juridiskt"><p class="kick">Juridiskt</p><ul>{nav}</ul></nav>
   <article class="prose">{content}
   <p class="updated">Senast uppdaterad {UPDATED}</p></article>
 </section>'''
@@ -609,7 +577,7 @@ def legal():
 
 def not_found():
     body = page_head("Sidan finns inte", "Länken kan vara gammal eller felstavad.", "404",
-                     f'<p class="hero-cta"><a class="btn btn-ink" href="index.html">Till startsidan {ico("arrow")}</a><a class="link" href="boka.html">Boka service</a></p>')
+                     f'<div class="btns"><a class="btn btn-ink" href="index.html">Till startsidan {ico("arrow")}</a><a class="btn btn-line" href="boka.html">Boka service</a></div>')
     page("404.html", "Sidan finns inte | Hemmacykel", "Sidan kunde inte hittas.", body)
 
 

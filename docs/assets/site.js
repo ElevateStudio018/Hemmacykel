@@ -23,19 +23,19 @@
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Tjänstelistan: bilden bredvid följer raden man pekar på
-  const fig = d.querySelector('.svc-fig');
-  if (fig) {
-    const rows = d.querySelectorAll('[data-svc]');
-    const show = (v) => {
-      fig.querySelectorAll('img').forEach((img) => img.classList.toggle('on', img.dataset.for === v));
-      rows.forEach((r) => r.classList.toggle('on', r.dataset.svc === v));
+  // Priskalkylatorn i heron: tjänst + cykeltyp ger uppskattat pris, "Boka" tar med valen till bokningen
+  d.querySelectorAll('[data-calc]').forEach((calc) => {
+    const svc = calc.querySelector('[name=tjanst]');
+    const typ = calc.querySelector('[name=typ]');
+    const out = calc.querySelector('[data-calc-total]');
+    const sync = () => {
+      const price = +svc.selectedOptions[0].dataset.price;
+      const add = +typ.selectedOptions[0].dataset.add;
+      out.textContent = price ? (price + add).toLocaleString('sv-SE') + ' kr' : 'Prisförslag';
     };
-    rows.forEach((r) => {
-      r.addEventListener('mouseenter', () => show(r.dataset.svc));
-      r.addEventListener('focus', () => show(r.dataset.svc));
-    });
-  }
+    calc.addEventListener('change', sync);
+    sync();
+  });
 
   // Bildgallerier
   d.querySelectorAll('[data-car]').forEach((root) => {
@@ -94,6 +94,9 @@
       const el = v && form.querySelector(`input[name="svc"][value="${CSS.escape(v)}"]`);
       if (el) el.checked = true;
     });
+    const typParam = q.get('typ');
+    const typEl = typParam && form.querySelector(`input[name="typ"][value="${CSS.escape(typParam)}"]`);
+    if (typEl) typEl.checked = true;
 
     const selected = () => [...form.querySelectorAll('input[name=svc]:checked')].map((i) => ({ name: i.dataset.name, price: +i.dataset.price }));
     const bikeType = () => {

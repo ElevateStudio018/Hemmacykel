@@ -3,16 +3,15 @@
 Ny webbplats för [Hemmacykel](https://hemmacykel.se/), mobil cykelverkstad i Uppsala. Allt innehåll, alla priser,
 omdömen och bilder är hämtade från den nuvarande sajten (se [`scrape/`](scrape/)).
 
-Designen är redaktionell och stram:
+Designen bygger på förslag 7 i [`design/forslag/`](design/forslag/) ("Inramad med bokningsfält"):
 
-- Ett typsnitt, **Geist** (Geist Mono för små etiketter och priser), stor rubriktypografi med tät spärrning.
-- 12-kolumners grid där varje sektion har etikett till vänster och innehåll till höger, hårlinjer i stället för
-  kort, skuggor och ikonrutor. Inga scroll-animationer.
-- Varm off-white bakgrund, skogsgrönt från Hemmacykels logga för de mörka partierna (om oss, slut-CTA, footer)
-  och deras lime (`#6fd439`) bara på knappar och små markeringar.
-- Tjänster och priser är en enda lista; på desktop byter bilden bredvid när man pekar på en rad.
+- **Hanken Grotesk**, vit grund med ljusgrå rundade kort (22 px), svarta pill-knappar och Hemmacykels lime
+  (`#6fd439`) för bokning. Skogsgrönt från loggan i det populäraste paketet och i avslutningen.
+- Herobilden ligger inramad med rundade hörn under en vit meny, och undersidornas rubrikfält har samma ram.
+- **Priskalkylator i heron**: välj tjänst eller paket och typ av cykel så visas uppskattat pris direkt. "Boka" tar
+  med båda valen till bokningen (`boka.html?tjanst=…&typ=…`), som räknar vidare därifrån.
 
-Slogan: **”Få vardagen att rulla igen.”** – rubriken i heron, återkommer i slut-CTA:n.
+Slogan: **”Få vardagen att rulla igen.”** – rubriken i heron, återkommer i avslutningen.
 
 [`Hemmacykel-ny-hemsida.pdf`](Hemmacykel-ny-hemsida.pdf) är ett förslag att skicka till kunden: försättsblad,
 startsidan, mobilvyer, bokningen och cyklar till salu, renderat direkt från sajten i `docs/`.
@@ -36,7 +35,7 @@ och hämtar priser, omdömen, FAQ och cyklar från `scripts/build.py`.
 Allt ligger i [`docs/`](docs/) och behöver inga verktyg – öppna `docs/index.html` i en webbläsare.
 Mappen kan publiceras direkt med GitHub Pages (Settings → Pages → `main` / `docs`) eller valfritt webbhotell.
 
-- `index.html` – startsidan: hero, tjänster och priser, servicepaket, så funkar det, om oss,
+- `index.html` – startsidan: hero med priskalkylator, tjänster och priser, servicepaket, så funkar det, om oss,
   **omdömen** (Google-betyg + kundcitat), tipsa en kompis, cyklar till salu, FAQ
 - `boka.html` – bokning i tre steg med prisberäkning och veckokalender
 - `cyklar.html` – begagnade cyklar med bildgalleri per cykel
