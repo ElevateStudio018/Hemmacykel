@@ -39,7 +39,7 @@ python3 scripts/build.py
 - **Priser, tjänster, paket, FAQ, omdömen, kontaktuppgifter**: konstanterna högst upp i `build.py`.
 - **Cyklar till salu**: [`scripts/cyklar.json`](scripts/cyklar.json). Lägg bilderna i `docs/img/cyklar/`,
   sätt `"sold": true` när en cykel är såld. Cyklar till salu visas först.
-- **Stil**: `docs/assets/site.css`. **Meny, karuseller, bokning**: `docs/assets/site.js`.
+- **Stil**: `docs/assets/site.css`. **Meny, bildgallerier, bokning**: `docs/assets/site.js`.
 
 ## Att tänka på innan lansering
 
