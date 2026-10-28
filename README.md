@@ -17,6 +17,20 @@ Slogan: **”Få vardagen att rulla igen.”** – rubriken i heron, återkommer
 [`Hemmacykel-ny-hemsida.pdf`](Hemmacykel-ny-hemsida.pdf) är ett förslag att skicka till kunden: försättsblad,
 startsidan, mobilvyer, bokningen och cyklar till salu, renderat direkt från sajten i `docs/`.
 
+## Designförslag
+
+[`design/forslag/`](design/forslag/) har sju förslag på startsidan, alla med heltäckande herobild och samma innehåll
+som sajten. Öppna `design/forslag/index.html` för en översikt. Förslagen byggs med `python3 design/forslag/build.py`
+och hämtar priser, omdömen, FAQ och cyklar från `scripts/build.py`.
+
+1. Mörk klassiker – Geist, mörk toning från vänster, faktarad i botten
+2. Vit panel – Manrope, vit innehållspanel på bilden
+3. Centrerad med snabbval – Instrument Sans, snabbknappar med pris till bokningen
+4. Redaktionell – Inter Tight, jättestor rubrik över hela bredden
+5. Skogsgrön – Fraunces + Inter, bilden tonad i loggans gröna
+6. Sportig – Barlow Condensed, versaler och lime
+7. Inramad med bokningsfält – Hanken Grotesk, rundad bild och bokningsfält som en sökruta
+
 ## Sidor
 
 Allt ligger i [`docs/`](docs/) och behöver inga verktyg – öppna `docs/index.html` i en webbläsare.
