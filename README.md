@@ -12,6 +12,11 @@ Designen blandar två av våra tidigare sajter:
 
 Färgerna kommer från Hemmacykels egen logga/favicon (skogsgrön + cream) med deras lime (`#6fd439`) som accent.
 
+Slogan: **”Få vardagen att rulla igen.”** – i heron, footern och CTA-bandet.
+
+[`Hemmacykel-ny-hemsida.pdf`](Hemmacykel-ny-hemsida.pdf) är ett förslag att skicka till kunden: försättsblad,
+startsidan, mobilvyer, bokningen och cyklar till salu, renderat direkt från sajten i `docs/`.
+
 ## Sidor
 
 Allt ligger i [`docs/`](docs/) och behöver inga verktyg – öppna `docs/index.html` i en webbläsare.

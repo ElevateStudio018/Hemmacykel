@@ -192,7 +192,7 @@ def footer(home):
   <div class="in foot-top">
     <div class="foot-brand">
       <a class="logo logo-light" href="index.html" aria-label="Hemmacykel, till startsidan">{logo(True)}</a>
-      <p>Mobil cykelverkstad i Uppsala. Vi kommer hem till dig och fixar cykeln på plats – utan gömda avgifter.</p>
+      <p><b class="foot-slogan">Få vardagen att rulla igen.</b>Mobil cykelverkstad i Uppsala. Vi kommer hem till dig och fixar cykeln på plats – utan gömda avgifter.</p>
       <a class="foot-rating" href="{MAPS}" target="_blank" rel="noopener">{GOOGLE}{STARS}<span><b>{RATING}</b> · {REVIEW_COUNT} omdömen</span></a>
     </div>
     <div>
@@ -376,8 +376,8 @@ def index():
   <img class="hero-img" src="img/hemmacykel-hero.jpg" alt="Hemmacykel servar en cykel på plats vid ett cykelställ i Uppsala" width="1170" height="1560" fetchpriority="high">
   <div class="in hero-in">
     <p class="eyebrow eb-light">Mobil cykelverkstad · Uppsala</p>
-    <h1>Cykelservice i Uppsala. <span>Vi kommer till dig.</span></h1>
-    <p class="hero-lead">Slipp släpa cykeln till en verkstad. Vi fixar den där den står, så du behåller tiden och friheten i vardagen.</p>
+    <h1>Cykelservice i Uppsala. <span>Få vardagen att rulla igen.</span></h1>
+    <p class="hero-lead">Vi kommer hem till dig och fixar cykeln där den står. Du slipper släpa den till en verkstad – och behåller tiden och friheten i vardagen.</p>
     <div class="hero-cta"><a class="btn btn-l" href="boka.html">Boka service {ico("arrow")}</a><a class="btn btn-ghost" href="tel:{TEL}">{ico("phone")}Ring {PHONE}</a></div>
     <a class="g-chip" href="#omdomen">{GOOGLE}{STARS}<span><b>{RATING}</b> · {REVIEW_COUNT} omdömen på Google</span></a>
   </div>
