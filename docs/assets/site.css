@@ -247,8 +247,8 @@ details[open]>summary .pm::after{transform:rotate(0)}
 @media (max-width:860px){.legal{grid-template-columns:1fr}.legal-nav{position:static}.legal-nav ul{display:flex;flex-wrap:wrap;gap:6px}}
 
 /* cyklar-sidan */
-.bikes-page{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 20px;padding-block:clamp(48px,6vw,80px)}
-.bike{display:flex;flex-direction:column;scroll-margin-top:100px}
+.bikes-page{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 16px}
+.bike{display:flex;flex-direction:column}
 .gal{position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;background:var(--bg-3)}
 .bike:target .gal{outline:3px solid var(--lime);outline-offset:4px}
 .gal-track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
@@ -260,8 +260,8 @@ details[open]>summary .pm::after{transform:rotate(0)}
 .gal-btn.next{right:12px}
 .gal-count{position:absolute;bottom:12px;right:12px;font-size:12.5px;font-weight:600;background:rgba(22,24,22,.72);color:#fff;padding:6px 10px;border-radius:999px}
 .bike-b{display:flex;flex-direction:column;gap:10px;padding:22px 4px 0;flex:1}
-.bike-b h2{font-size:clamp(1.5rem,2.4vw,1.9rem)}
-.bike-b .pr{font-size:1.2rem}
+.bike-b h3{font-size:1.35rem}
+.bike-b .pr{font-size:1.1rem}
 .meta{font-size:14px;color:var(--muted)}
 .intro{color:var(--ink-2);max-width:58ch}
 .bike-more{background:var(--bg-2);border-radius:var(--r-s);margin-top:6px}
@@ -275,12 +275,14 @@ details[open]>summary .pm::after{transform:rotate(0)}
 .bike-more>:last-child{margin-bottom:18px}
 .bike-f{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:12px}
 p.bike-f{font-size:15px}
-.fine{padding-block:24px clamp(72px,8vw,112px);font-size:14px;color:var(--muted);max-width:80ch}
+.fine{margin-top:20px;font-size:14px;color:var(--muted);max-width:80ch}
+.refer-w{margin-top:clamp(48px,6vw,72px)}
 .fine a{color:var(--ink)}
-@media (max-width:860px){.bikes-page{grid-template-columns:1fr;gap:48px}}
+@media (max-width:1000px){.bikes-page{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.bikes-page{grid-template-columns:1fr;gap:40px}}
 
 /* bokning */
-.booking{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:clamp(32px,5vw,72px);align-items:start;padding-block:clamp(40px,5vw,64px) clamp(80px,9vw,128px)}
+.booking{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:clamp(32px,5vw,72px);align-items:start}
 fieldset{border:0;margin:0;padding:0;min-width:0}
 fieldset:focus{outline:none}
 .bk-steps{list-style:none;margin:0 0 40px;padding:6px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;background:var(--bg-2);border-radius:999px}
@@ -357,8 +359,9 @@ legend{font-size:clamp(2rem,3.4vw,2.8rem);font-weight:600;letter-spacing:-.045em
   .slot .sh{display:none}
   .fld-grid{grid-template-columns:1fr}
   .wk-head{flex-direction:column;align-items:flex-start}
-  .bk-steps li{font-size:13.5px;padding:10px 6px}
+  .bk-steps li{font-size:13.5px;padding:10px 6px;white-space:nowrap}
 }
+@media (max-width:420px){.bk-steps li span{display:none}}
 .bk-done h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-top:22px}
 .bk-done p{margin-top:14px;color:var(--ink-2);max-width:58ch}
 .bk-done a{color:var(--ink);font-weight:500}
@@ -399,4 +402,12 @@ legend{font-size:clamp(2rem,3.4vw,2.8rem);font-weight:600;letter-spacing:-.045em
   .cta .btn,.refer .btn{width:100%}
   .score>b{font-size:3.6rem}
 }
+/* bokning och cyklar i grå sektion: fälten blir vita */
+.alt .opts,.alt .bk-sum,.alt .bk-steps,.alt .day,.alt .wk-tabs button,.alt .chip span,.alt .fld input,.alt .fld textarea,.alt .bike-more,.alt .bk-copy{background:#fff}
+.alt .opt:hover,.alt .opt:has(input:checked),.alt .bk-steps li.on,.alt .sum-total,.alt .slot{background:var(--bg-2)}
+.alt .chip:hover span,.alt .wk-tabs button:hover:not(:disabled),.alt .slot:not([aria-pressed=true]):not(:disabled):hover{background:var(--bg-3)}
+.alt .chip:has(input:checked) span,.alt .slot[aria-pressed=true]{background:var(--ink)}
+.alt .slot:disabled{background:transparent}
+.alt .opt:has(input:checked){box-shadow:none}
+
 @media print{.site-h,.cta,.foot,.bk-sum{display:none}}

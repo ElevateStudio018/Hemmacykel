@@ -23,7 +23,10 @@
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Priskalkylatorn i heron: tjänst + cykeltyp ger uppskattat pris, "Boka" tar med valen till bokningen
+  const form = d.getElementById('booking');
+  const book = form ? booking(form) : null;
+
+  // Priskalkylatorn i heron: tjänst + cykeltyp ger uppskattat pris, "Boka" fyller i bokningen längre ner
   d.querySelectorAll('[data-calc]').forEach((calc) => {
     const svc = calc.querySelector('[name=tjanst]');
     const typ = calc.querySelector('[name=typ]');
@@ -34,8 +37,20 @@
       out.textContent = price ? (price + add).toLocaleString('sv-SE') + ' kr' : 'Prisförslag';
     };
     calc.addEventListener('change', sync);
+    calc.addEventListener('submit', (e) => {
+      if (!book) return;
+      e.preventDefault();
+      book.pick([svc.value], typ.value, true);
+    });
     sync();
   });
+
+  // Knappar som "Boka Cykelcheck" väljer tjänsten i bokningen och scrollar dit
+  d.querySelectorAll('[data-pick]').forEach((a) => a.addEventListener('click', (e) => {
+    if (!book) return;
+    e.preventDefault();
+    book.pick([a.dataset.pick]);
+  }));
 
   // Bildgallerier
   d.querySelectorAll('[data-car]').forEach((root) => {
@@ -58,9 +73,6 @@
     addEventListener('resize', sync);
     sync();
   });
-
-  const form = d.getElementById('booking');
-  if (form) booking(form);
 
   function booking(form) {
     const MAIL = form.dataset.mail;
@@ -281,5 +293,26 @@
     });
 
     update();
+
+    return {
+      pick(values, typ, replace) {
+        if (replace) form.querySelectorAll('input[name=svc]').forEach((i) => { i.checked = false; });
+        values.forEach((v) => {
+          const el = form.querySelector(`input[name="svc"][value="${CSS.escape(v)}"]`);
+          if (el) el.checked = true;
+        });
+        const t = typ && form.querySelector(`input[name="typ"][value="${CSS.escape(typ)}"]`);
+        if (t) t.checked = true;
+        if (!done.hidden) {
+          done.hidden = true;
+          form.querySelector('.bk-steps').hidden = false;
+          form.querySelector('.bk-nav').hidden = false;
+        }
+        update();
+        show(0);
+        const sec = d.getElementById('boka') || form;
+        sec.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      },
+    };
   }
 })();

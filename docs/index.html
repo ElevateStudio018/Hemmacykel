@@ -25,17 +25,17 @@
 <header class="site-h">
   <div class="wrap nav">
     <a class="logo" href="index.html" aria-label="Hemmacykel, till startsidan"><img src="img/logo-mark.png" alt="" width="34" height="30"><span>Hemmacykel</span></a>
-    <nav class="mainnav" aria-label="Huvudmeny"><a href="#tjanster">Tjänster</a><a href="#paket">Paket</a><a href="#omdomen">Omdömen</a><a href="#om-oss">Om oss</a><a href="#fragor">Frågor</a><a href="cyklar.html">Cyklar till salu</a></nav>
+    <nav class="mainnav" aria-label="Huvudmeny"><a href="#tjanster">Tjänster</a><a href="#paket">Paket</a><a href="#cyklar">Cyklar till salu</a><a href="#omdomen">Omdömen</a><a href="#om-oss">Om oss</a><a href="#fragor">Frågor</a></nav>
     <div class="nav-cta">
       <a class="nav-tel" href="tel:+46706828845">070-682 88 45</a>
-      <a class="btn btn-ink btn-s" href="boka.html">Boka service</a>
+      <a class="btn btn-ink btn-s" href="#boka">Boka service</a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Meny"><svg class="i i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16"/><path d="M4 16h16"/></svg><svg class="i i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
     </div>
   </div>
   <div class="drawer" id="drawer" hidden>
     <div class="wrap">
-      <ul><li><a href="#tjanster">Tjänster</a></li><li><a href="#paket">Paket</a></li><li><a href="#omdomen">Omdömen</a></li><li><a href="#om-oss">Om oss</a></li><li><a href="#fragor">Frågor</a></li><li><a href="cyklar.html">Cyklar till salu</a></li></ul>
-      <div class="drawer-cta"><a class="btn btn-ink" href="boka.html">Boka service <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="btn btn-line" href="tel:+46706828845">Ring 070-682 88 45</a></div>
+      <ul><li><a href="#tjanster">Tjänster</a></li><li><a href="#paket">Paket</a></li><li><a href="#cyklar">Cyklar till salu</a></li><li><a href="#omdomen">Omdömen</a></li><li><a href="#om-oss">Om oss</a></li><li><a href="#fragor">Frågor</a></li></ul>
+      <div class="drawer-cta"><a class="btn btn-ink" href="#boka">Boka service <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="btn btn-line" href="tel:+46706828845">Ring 070-682 88 45</a></div>
       <p class="muted">Vardagar 15–19 · Helger 9–19</p>
     </div>
   </div>
@@ -47,7 +47,7 @@
     <p class="kick">Mobil cykelservice i Uppsala</p>
     <h1>Få vardagen att rulla igen.</h1>
     <p class="lead">Vi kommer hem till dig och fixar cykeln där den står. Fasta priser, inga gömda avgifter.</p>
-    <form class="calc" action="boka.html" method="get" data-calc>
+    <form class="calc" action="#boka" method="get" data-calc>
   <label class="calc-f"><span>Vad behöver fixas?</span><select name="tjanst"><optgroup label="Reparationer"><option value="punktering" data-price="299">Punktering – 299 kr</option><option value="dackbyte" data-price="349">Däckbyte – 349 kr</option><option value="bromsjustering" data-price="199">Bromsjustering – 199 kr</option><option value="bromsvajer" data-price="249">Byte av bromsvajer – 249 kr</option><option value="bromsklossar" data-price="249">Byte av bromsklossar – 249 kr</option><option value="kedjebyte" data-price="299">Kedjebyte – 299 kr</option><option value="ovrigt" data-price="0">Övrigt / vet inte</option></optgroup><optgroup label="Servicepaket"><option value="cykelcheck" data-price="499">Cykelcheck – 499 kr</option><option value="hemmaservice" data-price="749">Hemmaservice – 749 kr</option><option value="flera-cyklar" data-price="899">Flera cyklar – 899 kr</option></optgroup></select></label>
   <label class="calc-f"><span>Typ av cykel</span><select name="typ"><option value="vanlig" data-add="0">Vanlig cykel</option><option value="elcykel" data-add="50">Elcykel (+50 kr)</option><option value="ladcykel" data-add="50">Lådcykel (+50 kr)</option><option value="tandem" data-add="50">Tandemcykel (+50 kr)</option><option value="trehjuling" data-add="50">Trehjuling / specialcykel (+50 kr)</option><option value="fatbike" data-add="50">Fatbike (+50 kr)</option><option value="elsparkcykel" data-add="100">Elsparkcykel (+100 kr)</option></select></label>
   <p class="calc-p"><span>Uppskattat pris</span><b data-calc-total aria-live="polite">299 kr</b></p>
@@ -59,7 +59,7 @@
 
 <section class="sec" id="tjanster"><div class="wrap">
   <div class="sh"><div><p class="kick">Tjänster och priser</p><h2>Fast pris på det vanligaste.</h2></div><p>Du ser alltid priset innan vi börjar. Priserna gäller inklusive moms, arbete och material.</p></div>
-  <div class="svc"><a href="boka.html?tjanst=punktering"><img src="img/tjanst-punktering.jpg" alt="" loading="lazy"><span class="t"><span class="row"><b>Punktering</b><span class="pr">299 kr</span></span><small>Vi lagar eller byter slang på plats.</small></span></a><a href="boka.html?tjanst=dackbyte"><img src="img/tjanst-dack.jpg" alt="" loading="lazy"><span class="t"><span class="row"><b>Däckbyte</b><span class="pr">349 kr</span></span><small>Byte av däck, fram eller bak.</small></span></a><a href="boka.html?tjanst=kedjebyte"><img src="img/tjanst-kedja.jpg" alt="" loading="lazy"><span class="t"><span class="row"><b>Kedjebyte</b><span class="pr">299 kr</span></span><small>Byte och service av kedja.</small></span></a><a href="boka.html?tjanst=bromsjustering"><img src="img/tjanst-bromsar.jpg" alt="" loading="lazy"><span class="t"><span class="row"><b>Bromsar</b><span class="pr">från 199 kr</span></span><small>Justering, nya klossar eller ny vajer.</small></span></a><a href="boka.html?paket=cykelcheck"><img src="img/tjanst-service.jpg" alt="" loading="lazy"><span class="t"><span class="row"><b>Service</b><span class="pr">från 499 kr</span></span><small>Genomgång och säkerhetskontroll av hela cykeln.</small></span></a><a href="boka.html?tjanst=ovrigt"><img src="img/tjanst-ovrigt.jpg" alt="" loading="lazy"><span class="t"><span class="row"><b>Övrigt</b><span class="pr">Prisförslag</span></span><small>Något annat? Beskriv problemet så ger vi ett prisförslag.</small></span></a></div>
+  <div class="svc"><a href="#boka" data-pick="punktering"><img src="img/tjanst-punktering.jpg" alt="" loading="lazy"><span class="t"><span class="row"><b>Punktering</b><span class="pr">299 kr</span></span><small>Vi lagar eller byter slang på plats.</small></span></a><a href="#boka" data-pick="dackbyte"><img src="img/tjanst-dack.jpg" alt="" loading="lazy"><span class="t"><span class="row"><b>Däckbyte</b><span class="pr">349 kr</span></span><small>Byte av däck, fram eller bak.</small></span></a><a href="#boka" data-pick="kedjebyte"><img src="img/tjanst-kedja.jpg" alt="" loading="lazy"><span class="t"><span class="row"><b>Kedjebyte</b><span class="pr">299 kr</span></span><small>Byte och service av kedja.</small></span></a><a href="#boka" data-pick="bromsjustering"><img src="img/tjanst-bromsar.jpg" alt="" loading="lazy"><span class="t"><span class="row"><b>Bromsar</b><span class="pr">från 199 kr</span></span><small>Justering, nya klossar eller ny vajer.</small></span></a><a href="#boka" data-pick="cykelcheck"><img src="img/tjanst-service.jpg" alt="" loading="lazy"><span class="t"><span class="row"><b>Service</b><span class="pr">från 499 kr</span></span><small>Genomgång och säkerhetskontroll av hela cykeln.</small></span></a><a href="#boka" data-pick="ovrigt"><img src="img/tjanst-ovrigt.jpg" alt="" loading="lazy"><span class="t"><span class="row"><b>Övrigt</b><span class="pr">Prisförslag</span></span><small>Något annat? Beskriv problemet så ger vi ett prisförslag.</small></span></a></div>
   <p class="note">Elcykel, lådcykel och andra tyngre cyklar +50 kr · elsparkcykel +100 kr · reseavgift 50 kr vid över 15 min körtid, 100 kr vid över 25 min.</p>
 </div></section>
 
@@ -69,23 +69,95 @@
   <div class="top"><h3>Cykelcheck</h3><span class="tag">Populärast</span></div>
   <p class="for">För dig som vill att cykeln ska kännas bra igen</p><p class="amt">499<span>kr</span></p><p class="vat">Fast pris inkl. moms, arbete och material</p>
   <ul><li>Kontroll av hela cykeln</li><li>Bromsjustering</li><li>Växeljustering</li><li>Kedjesmörjning</li><li>Däcktryck</li><li>Kontroll av däck och bromsbelägg</li><li>Åtdragning av viktiga skruvar</li><li>Säkerhetskontroll</li></ul>
-  <a class="btn btn-lime" href="boka.html?paket=cykelcheck">Boka Cykelcheck <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+  <a class="btn btn-lime" href="#boka" data-pick="cykelcheck">Boka Cykelcheck <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
 </article><article>
   <div class="top"><h3>Hemmaservice</h3></div>
   <p class="for">För en cykel som behöver lite mer kärlek</p><p class="amt">749<span>kr</span></p><p class="vat">Fast pris inkl. moms, arbete och material</p>
   <ul><li>Allt i paket Cykelcheck</li><li>Grundligare genomgång</li><li>Kontroll/justering av hjul</li><li>Genomgång av drivlina</li><li>Smörjning av rörliga delar</li><li>Efterdragning av skruvar</li><li>Slitagekontroll</li></ul>
-  <a class="btn btn-line" href="boka.html?paket=hemmaservice">Boka Hemmaservice <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+  <a class="btn btn-line" href="#boka" data-pick="hemmaservice">Boka Hemmaservice <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
 </article><article>
   <div class="top"><h3>Flera cyklar</h3></div>
   <p class="for">Cykelcheck på 2 cyklar vid samma hembesök</p><p class="amt">899<span>kr</span></p><p class="vat">Fast pris inkl. moms, arbete och material</p>
   <ul><li>Kontroll av hela cyklarna</li><li>Bromsjustering</li><li>Växeljustering</li><li>Kedjesmörjning</li><li>Däcktryck</li><li>Kontroll av däck och bromsbelägg</li><li>Åtdragning av viktiga skruvar</li><li>Säkerhetskontroll</li></ul>
-  <a class="btn btn-line" href="boka.html?paket=flera-cyklar">Boka Flera cyklar <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+  <a class="btn btn-line" href="#boka" data-pick="flera-cyklar">Boka Flera cyklar <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
 </article></div>
 </div></section>
 
 <section class="sec" id="sa-funkar-det"><div class="wrap">
-  <div class="sh"><div><p class="kick">Så funkar det</p><h2>Från trasig till rullande på tre steg.</h2></div><a class="btn btn-ink" href="boka.html">Boka nu <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+  <div class="sh"><div><p class="kick">Så funkar det</p><h2>Från trasig till rullande på tre steg.</h2></div><a class="btn btn-ink" href="#boka">Boka nu <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
   <ol class="steps"><li><span class="n">1</span><h3>Boka på någon minut</h3><p>Välj hjälpen och tiden som passar din vardag. Vi bekräftar tid och pris via telefon eller e-post.</p></li><li><span class="n">2</span><h3>Vi fixar den där den står</h3><p>Vi kommer hem till dig med allt vi behöver. Du behöver inte lyfta ett finger.</p></li><li><span class="n">3</span><h3>Rulla vidare</h3><p>Betala med Swish när jobbet är klart. Kvitto får du alltid.</p></li></ol>
+</div></section>
+
+<section class="sec alt" id="boka"><div class="wrap">
+  <div class="sh"><div><p class="kick">Boka service</p><h2>Boka på någon minut.</h2></div><p>Tre korta steg. Priset räknas ut medan du väljer, och vi bekräftar tid och pris innan vi kommer.</p></div>
+  <div class="booking">
+  <form id="booking" class="bk-form" novalidate data-mail="hemmacykel@gmail.com">
+    <ol class="bk-steps"><li class="on"><span>1</span>Tjänst</li><li><span>2</span>Tid och plats</li><li><span>3</span>Kontakt</li></ol>
+    <noscript><p class="bk-err">Bokningen kräver JavaScript. Ring oss på 070-682 88 45 eller mejla hemmacykel@gmail.com så bokar vi åt dig.</p></noscript>
+
+    <fieldset class="bk-step" data-step="0">
+      <legend>Vad vill du ha hjälp med?</legend>
+      <p class="hint">Välj en eller flera.</p>
+      <h3 class="bk-h">Reparationer</h3>
+      <div class="opts"><label class="opt"><input type="checkbox" name="svc" value="punktering" data-name="Punktering" data-price="299"><span class="box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="nm">Punktering</span><span class="pr">299 kr</span></label><label class="opt"><input type="checkbox" name="svc" value="dackbyte" data-name="Däckbyte" data-price="349"><span class="box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="nm">Däckbyte</span><span class="pr">349 kr</span></label><label class="opt"><input type="checkbox" name="svc" value="bromsjustering" data-name="Bromsjustering" data-price="199"><span class="box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="nm">Bromsjustering</span><span class="pr">199 kr</span></label><label class="opt"><input type="checkbox" name="svc" value="bromsvajer" data-name="Byte av bromsvajer" data-price="249"><span class="box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="nm">Byte av bromsvajer</span><span class="pr">249 kr</span></label><label class="opt"><input type="checkbox" name="svc" value="bromsklossar" data-name="Byte av bromsklossar" data-price="249"><span class="box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="nm">Byte av bromsklossar</span><span class="pr">249 kr</span></label><label class="opt"><input type="checkbox" name="svc" value="kedjebyte" data-name="Kedjebyte" data-price="299"><span class="box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="nm">Kedjebyte</span><span class="pr">299 kr</span></label><label class="opt"><input type="checkbox" name="svc" value="ovrigt" data-name="Övrigt / vet inte" data-price="0"><span class="box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="nm">Övrigt / vet inte</span><span class="pr">Prisförslag</span></label></div>
+      <h3 class="bk-h">Servicepaket</h3>
+      <div class="opts"><label class="opt"><input type="checkbox" name="svc" value="cykelcheck" data-name="Cykelcheck" data-price="499"><span class="box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="nm">Cykelcheck<small>För dig som vill att cykeln ska kännas bra igen</small></span><span class="pr">499 kr</span></label><label class="opt"><input type="checkbox" name="svc" value="hemmaservice" data-name="Hemmaservice" data-price="749"><span class="box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="nm">Hemmaservice<small>För en cykel som behöver lite mer kärlek</small></span><span class="pr">749 kr</span></label><label class="opt"><input type="checkbox" name="svc" value="flera-cyklar" data-name="Flera cyklar (2 st)" data-price="899"><span class="box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="nm">Flera cyklar (2 st)<small>Cykelcheck på 2 cyklar vid samma hembesök</small></span><span class="pr">899 kr</span></label></div>
+      <h3 class="bk-h">Typ av cykel</h3>
+      <div class="chips"><label class="chip"><input type="radio" name="typ" value="vanlig" data-name="Vanlig cykel" data-add="0" checked><span>Vanlig cykel</span></label><label class="chip"><input type="radio" name="typ" value="elcykel" data-name="Elcykel" data-add="50"><span>Elcykel <em>+50 kr</em></span></label><label class="chip"><input type="radio" name="typ" value="ladcykel" data-name="Lådcykel" data-add="50"><span>Lådcykel <em>+50 kr</em></span></label><label class="chip"><input type="radio" name="typ" value="tandem" data-name="Tandemcykel" data-add="50"><span>Tandemcykel <em>+50 kr</em></span></label><label class="chip"><input type="radio" name="typ" value="trehjuling" data-name="Trehjuling / specialcykel" data-add="50"><span>Trehjuling / specialcykel <em>+50 kr</em></span></label><label class="chip"><input type="radio" name="typ" value="fatbike" data-name="Fatbike" data-add="50"><span>Fatbike <em>+50 kr</em></span></label><label class="chip"><input type="radio" name="typ" value="elsparkcykel" data-name="Elsparkcykel" data-add="100"><span>Elsparkcykel <em>+100 kr</em></span></label></div>
+      <label class="fld"><span>Beskriv problemet <small>(valfritt)</small></span><textarea name="beskrivning" rows="3" placeholder="T.ex. bakdäcket tappar luft och växlarna hoppar."></textarea></label>
+    </fieldset>
+
+    <fieldset class="bk-step" data-step="1" hidden>
+      <legend>Var och när?</legend>
+      <p class="hint">Vardagar är vi ute 15–19, helger 9–19.</p>
+      <div class="week" id="week"></div>
+      <label class="check-line"><input type="checkbox" name="foreslag"> <span>Jag vet inte, föreslå en tid åt mig</span></label>
+      <label class="fld"><span>Var står cykeln?</span><input name="adress" autocomplete="street-address" placeholder="Gatuadress, Uppsala" required></label>
+    </fieldset>
+
+    <fieldset class="bk-step" data-step="2" hidden>
+      <legend>Dina uppgifter</legend>
+      <p class="hint">Vi återkommer via e-post eller telefon för att bekräfta tid och pris.</p>
+      <div class="fld-grid">
+        <label class="fld"><span>Namn</span><input name="namn" autocomplete="name" required></label>
+        <label class="fld"><span>Telefon</span><input name="telefon" type="tel" autocomplete="tel" inputmode="tel" required></label>
+        <label class="fld"><span>E-post</span><input name="epost" type="email" autocomplete="email" required></label>
+        <label class="fld"><span>Rabattkod <small>(valfritt)</small></span><input name="kod" autocomplete="off"></label>
+      </div>
+      <label class="check-line"><input type="checkbox" name="inga_erbjudanden"> <span>Jag vill inte få erbjudanden om liknande tjänster via e-post.</span></label>
+      <label class="check-line"><input type="checkbox" name="villkor" required> <span>Jag har läst <a href="villkor.html" target="_blank">användarvillkoren</a> och <a href="integritetspolicy.html" target="_blank">integritetspolicyn</a>.</span></label>
+    </fieldset>
+
+    <p class="bk-err" role="alert" aria-live="assertive"></p>
+    <div class="bk-nav">
+      <button type="button" class="btn btn-line" data-go="-1" hidden><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>Tillbaka</button>
+      <button type="button" class="btn btn-ink" data-go="1">Fortsätt <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+      <button type="submit" class="btn btn-lime" hidden>Skicka bokningsförfrågan <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+    </div>
+
+    <div class="bk-done" hidden tabindex="-1">
+      <span class="done-ico"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+      <h2>Tack! Nu öppnas ditt mejlprogram.</h2>
+      <p>Skicka mejlet så är din bokningsförfrågan hos oss. Vi återkommer via e-post eller telefon för att bekräfta tid och pris.</p>
+      <p>Öppnades inget mejl? Ring oss på <a href="tel:+46706828845">070-682 88 45</a> eller skicka uppgifterna nedan till <a href="mailto:hemmacykel@gmail.com">hemmacykel@gmail.com</a>.</p>
+      <pre class="bk-copy"></pre>
+    </div>
+  </form>
+
+  <aside class="bk-sum" aria-live="polite">
+    <h3>Din bokning</h3>
+    <ul class="sum-list" id="sum-list"><li class="empty">Inget valt ännu</li></ul>
+    <div class="sum-meta" id="sum-meta"></div>
+    <div class="sum-total"><span>Uppskattat pris</span><b id="sum-total">–</b></div>
+    <p class="sum-note">Inga gömda avgifter. Vid över 15 minuters körtid tillkommer 50 kr i reseavgift, vid över 25 minuter 100 kr. Vi bekräftar alltid priset innan vi börjar.</p>
+    <a class="sum-call" href="tel:+46706828845">Föredrar du att ringa?<b>070-682 88 45</b></a>
+  </aside>
+</div>
+</div></section>
+
+<section class="sec" id="omdomen"><div class="wrap">
+  <div class="sh"><div><p class="kick">Omdömen</p><h2>Vad kunderna i Uppsala säger.</h2></div><div class="score"><b>5,0</b><span><span class="st">★★★★★</span>13 omdömen på Google<br><a href="https://maps.google.com/?cid=1143771656914339290" target="_blank" rel="noopener">Läs alla <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a></span></div></div>
+  <div class="rv"><figure><span class="st">★★★★★</span><blockquote>”Professionellt, snabb service, och bra pris! Väldigt nöjd och skulle anlita igen, kan varmt rekommendera.”</blockquote><figcaption><b>Rebecka Astenvald</b> · Google</figcaption></figure><figure><span class="st">★★★★★</span><blockquote>”Snabb och kompetent service som kommer hem till dig! Och dessutom väldigt bra priser.”</blockquote><figcaption><b>Malin Härenstam</b> · Google</figcaption></figure><figure><span class="st">★★★★★</span><blockquote>”Trevlig och superbra kille, fixade cykeln snabbt och det blev jättebra! Fantastiskt nöjd! ❤️🙏”</blockquote><figcaption><b>Sofia Ribeiro</b> · Google</figcaption></figure><figure><span class="st">★★★★★</span><blockquote>”Snabbt, enkelt, billigt och mycket trevliga att ha att göra med.”</blockquote><figcaption><b>Olof</b> · Google</figcaption></figure><figure><span class="st">★★★★★</span><blockquote>”Bra jobb och väldigt prisvärt med tanke på att dom kommer hem till en”</blockquote><figcaption><b>Tristan Johansson</b> · Google</figcaption></figure><figure><span class="st">★★★★★</span><blockquote>”Kan varmt rekommendera! Proffsigt och prisvärt!”</blockquote><figcaption><b>Johan</b> · Google</figcaption></figure></div>
 </div></section>
 
 <section class="sec alt" id="om-oss"><div class="wrap about">
@@ -104,32 +176,96 @@
   </div>
 </div></section>
 
-<section class="sec" id="omdomen"><div class="wrap">
-  <div class="sh"><div><p class="kick">Omdömen</p><h2>Vad kunderna i Uppsala säger.</h2></div><div class="score"><b>5,0</b><span><span class="st">★★★★★</span>13 omdömen på Google<br><a href="https://maps.google.com/?cid=1143771656914339290" target="_blank" rel="noopener">Läs alla <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a></span></div></div>
-  <div class="rv"><figure><span class="st">★★★★★</span><blockquote>”Professionellt, snabb service, och bra pris! Väldigt nöjd och skulle anlita igen, kan varmt rekommendera.”</blockquote><figcaption><b>Rebecka Astenvald</b> · Google</figcaption></figure><figure><span class="st">★★★★★</span><blockquote>”Snabb och kompetent service som kommer hem till dig! Och dessutom väldigt bra priser.”</blockquote><figcaption><b>Malin Härenstam</b> · Google</figcaption></figure><figure><span class="st">★★★★★</span><blockquote>”Trevlig och superbra kille, fixade cykeln snabbt och det blev jättebra! Fantastiskt nöjd! ❤️🙏”</blockquote><figcaption><b>Sofia Ribeiro</b> · Google</figcaption></figure><figure><span class="st">★★★★★</span><blockquote>”Snabbt, enkelt, billigt och mycket trevliga att ha att göra med.”</blockquote><figcaption><b>Olof</b> · Google</figcaption></figure><figure><span class="st">★★★★★</span><blockquote>”Bra jobb och väldigt prisvärt med tanke på att dom kommer hem till en”</blockquote><figcaption><b>Tristan Johansson</b> · Google</figcaption></figure><figure><span class="st">★★★★★</span><blockquote>”Kan varmt rekommendera! Proffsigt och prisvärt!”</blockquote><figcaption><b>Johan</b> · Google</figcaption></figure></div>
-</div></section>
-
 <section class="sec sec-tight"><div class="wrap"><div class="refer">
   <div><p class="kick">Tipsa en kompis</p><h2>Ge en kompis 100 kr – och få 100 kr själv.</h2>
-  <p>Efter besöket får du en personlig kod. När en kompis bokar med din kod får hen 100 kr rabatt, och du får 100 kr rabatt på ditt nästa besök.</p></div>
-  <a class="btn btn-ink" href="boka.html">Boka med kod <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+  <p>Efter besöket får du en personlig kod. När en kompis bokar med din kod får hen 100 kr rabatt, och du får 100 kr rabatt på ditt nästa besök. Skriv in koden i bokningen.</p></div>
+  <a class="btn btn-ink" href="#boka">Boka med kod <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
 </div></div></section>
 
 <section class="sec alt" id="cyklar"><div class="wrap">
-  <div class="sh"><div><p class="kick">Cyklar till salu</p><h2>Begagnat, genomgånget och redo att rulla.</h2></div><a class="btn btn-line" href="cyklar.html">Alla cyklar <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
-  <div class="bikes"><a class="bc" href="cyklar.html#skeppshult-stadscykel">
-  <span class="ph"><img src="img/cyklar/bike1-1.jpg" alt="Skeppshult stadscykel" loading="lazy"><span class="state">Till salu</span></span>
-  <span class="row"><b>Skeppshult stadscykel</b><span class="pr">1 800 kr</span></span>
-  <small>28” · Mycket gott skick</small>
-</a><a class="bc sold" href="cyklar.html#helkama-ainotar">
-  <span class="ph"><img src="img/cyklar/bike2-1.jpg" alt="Helkama Ainotar" loading="lazy"><span class="state">Såld</span></span>
-  <span class="row"><b>Helkama Ainotar</b><span class="pr">1 900 kr</span></span>
-  <small>28” · Mycket gott skick</small>
-</a><a class="bc sold" href="cyklar.html#cycletrack-citycykel">
-  <span class="ph"><img src="img/cyklar/bike3-1.jpg" alt="Cycletrack citycykel" loading="lazy"><span class="state">Såld</span></span>
-  <span class="row"><b>Cycletrack citycykel</b><span class="pr">999 kr</span></span>
-  <small>26” · Mycket gott skick</small>
-</a></div>
+  <div class="sh"><div><p class="kick">Cyklar till salu</p><h2>Begagnat, genomgånget och redo att rulla.</h2></div><p>Vi köper, servar och säljer begagnade cyklar i Uppsala. Alla cyklar är genomgångna av oss innan de säljs. Hämtas i Uppsala – provkör gärna innan du köper.</p></div>
+  <div class="bikes-page"><article class="bike" id="skeppshult-stadscykel">
+  <div class="gal" data-car>
+    <div class="gal-track" data-track tabindex="0" aria-label="Bilder på Skeppshult stadscykel"><img src="img/cyklar/bike1-1.jpg" alt="Skeppshult stadscykel, bild 1" loading="lazy"><img src="img/cyklar/bike1-2.jpg" alt="Skeppshult stadscykel, bild 2" loading="lazy"><img src="img/cyklar/bike1-3.jpg" alt="Skeppshult stadscykel, bild 3" loading="lazy"><img src="img/cyklar/bike1-4.jpg" alt="Skeppshult stadscykel, bild 4" loading="lazy"><img src="img/cyklar/bike1-5.jpg" alt="Skeppshult stadscykel, bild 5" loading="lazy"><img src="img/cyklar/bike1-6.jpg" alt="Skeppshult stadscykel, bild 6" loading="lazy"></div>
+    <span class="state">Till salu</span>
+    <button type="button" class="gal-btn prev" data-prev aria-label="Föregående bild"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button type="button" class="gal-btn next" data-next aria-label="Nästa bild"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+    <span class="gal-count" data-count>1 / 6</span>
+  </div>
+  <div class="bike-b">
+    <div class="row"><h3>Skeppshult stadscykel</h3><span class="pr">1 800 kr</span></div>
+    <p class="meta">28” · Mycket gott skick · Uppsala</p>
+    <p class="intro">Fin Skeppshult stadscykel, ca 15 år gammal, som nyligen har servats. Shimano Nexus-nav med 7 växlar. Lampan och växlarna fungerar och i övrigt är cykeln i bra skick.</p>
+    <details class="bike-more"><summary>Vad som är gjort<span class="pm" aria-hidden="true"></span></summary><h4 class="lh">Nyligen utfört</h4><ul><li>Rengjord</li><li>Kedjan spänd</li><li>Kedjan rengjord och smord</li><li>Alla viktiga skruvar och muttrar efterdragna</li><li>Testad så att allt fungerar</li><li>Däcken pumpade</li></ul><h4 class="lh">Utrustning</h4><ul><li>Shimano Nexus, 7 växlar</li><li>Belysning</li></ul></details>
+    <div class="bike-f"><a class="btn btn-ink btn-s" href="tel:+46706828845">Ring och köp</a><a class="btn btn-line btn-s" href="mailto:hemmacykel@gmail.com?subject=Intresserad%20av%20Skeppshult%20stadscykel">Mejla om cykeln</a></div>
+  </div>
+</article><article class="bike sold" id="helkama-ainotar">
+  <div class="gal" data-car>
+    <div class="gal-track" data-track tabindex="0" aria-label="Bilder på Helkama Ainotar"><img src="img/cyklar/bike2-1.jpg" alt="Helkama Ainotar, bild 1" loading="lazy"><img src="img/cyklar/bike2-2.jpg" alt="Helkama Ainotar, bild 2" loading="lazy"><img src="img/cyklar/bike2-3.jpg" alt="Helkama Ainotar, bild 3" loading="lazy"><img src="img/cyklar/bike2-4.jpg" alt="Helkama Ainotar, bild 4" loading="lazy"><img src="img/cyklar/bike2-5.jpg" alt="Helkama Ainotar, bild 5" loading="lazy"><img src="img/cyklar/bike2-6.jpg" alt="Helkama Ainotar, bild 6" loading="lazy"></div>
+    <span class="state">Såld</span>
+    <button type="button" class="gal-btn prev" data-prev aria-label="Föregående bild"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button type="button" class="gal-btn next" data-next aria-label="Nästa bild"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+    <span class="gal-count" data-count>1 / 6</span>
+  </div>
+  <div class="bike-b">
+    <div class="row"><h3>Helkama Ainotar</h3><span class="pr">1 900 kr</span></div>
+    <p class="meta">28” · Mycket gott skick · Sunnersta, Uppsala</p>
+    <p class="intro">Nyservad 28” Helkama Ainotar, tillverkad i Finland. Nyligen renoverad och servad – en cykel som passar perfekt för vardagligt bruk.</p>
+    <details class="bike-more"><summary>Vad som är gjort<span class="pm" aria-hidden="true"></span></summary><h4 class="lh">Nyligen utfört</h4><ul><li>Nya däck</li><li>Ny slang fram</li><li>Nytt växelsystem</li><li>Nysmort bakhjulsnav</li><li>Allmän service: justerade bromsar och växlar, rengjord och smord kedja, pumpade däck</li></ul><h4 class="lh">Utrustning</h4><ul><li>Korg</li><li>Pakethållare</li><li>Skärmar fram och bak</li><li>3 växlar</li><li>Reflexer</li></ul></details>
+    <p class="bike-f muted">Såld. Nya cyklar läggs upp löpande.</p>
+  </div>
+</article><article class="bike sold" id="cycletrack-citycykel">
+  <div class="gal" data-car>
+    <div class="gal-track" data-track tabindex="0" aria-label="Bilder på Cycletrack citycykel"><img src="img/cyklar/bike3-1.jpg" alt="Cycletrack citycykel, bild 1" loading="lazy"><img src="img/cyklar/bike3-2.jpg" alt="Cycletrack citycykel, bild 2" loading="lazy"><img src="img/cyklar/bike3-3.jpg" alt="Cycletrack citycykel, bild 3" loading="lazy"><img src="img/cyklar/bike3-4.jpg" alt="Cycletrack citycykel, bild 4" loading="lazy"><img src="img/cyklar/bike3-5.jpg" alt="Cycletrack citycykel, bild 5" loading="lazy"><img src="img/cyklar/bike3-6.jpg" alt="Cycletrack citycykel, bild 6" loading="lazy"></div>
+    <span class="state">Såld</span>
+    <button type="button" class="gal-btn prev" data-prev aria-label="Föregående bild"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button type="button" class="gal-btn next" data-next aria-label="Nästa bild"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+    <span class="gal-count" data-count>1 / 6</span>
+  </div>
+  <div class="bike-b">
+    <div class="row"><h3>Cycletrack citycykel</h3><span class="pr">999 kr</span></div>
+    <p class="meta">26” · Mycket gott skick · Gottsunda, Uppsala</p>
+    <p class="intro">Cycletrack med 26-tumshjul och 21 växlar (3 fram, 7 bak). Nyligen servad och redo att användas direkt – ett prisvärt, praktiskt och lättcyklat val för vardagen.</p>
+    <details class="bike-more"><summary>Vad som är gjort<span class="pm" aria-hidden="true"></span></summary><h4 class="lh">Nyligen utfört</h4><ul><li>Justering av bromsar</li><li>Justering av växlar</li><li>Rengöring och smörjning av kedja</li><li>Kontroll och pumpning av däck</li><li>Tvätt av cykeln</li></ul><h4 class="lh">Utrustning</h4><ul><li>Rymlig framkorg</li><li>Pakethållare</li><li>Fram- och baklampa</li><li>Skärmar fram och bak</li><li>Stöd</li></ul><p class="bnote">Hemleverans kan eventuellt ordnas.</p></details>
+    <p class="bike-f muted">Såld. Nya cyklar läggs upp löpande.</p>
+  </div>
+</article><article class="bike sold" id="yosemite">
+  <div class="gal" data-car>
+    <div class="gal-track" data-track tabindex="0" aria-label="Bilder på Yosemite vardagscykel"><img src="img/cyklar/bike4-1.jpg" alt="Yosemite vardagscykel, bild 1" loading="lazy"><img src="img/cyklar/bike4-2.jpg" alt="Yosemite vardagscykel, bild 2" loading="lazy"><img src="img/cyklar/bike4-3.jpg" alt="Yosemite vardagscykel, bild 3" loading="lazy"><img src="img/cyklar/bike4-4.jpg" alt="Yosemite vardagscykel, bild 4" loading="lazy"><img src="img/cyklar/bike4-5.jpg" alt="Yosemite vardagscykel, bild 5" loading="lazy"><img src="img/cyklar/bike4-6.jpg" alt="Yosemite vardagscykel, bild 6" loading="lazy"><img src="img/cyklar/bike4-7.jpg" alt="Yosemite vardagscykel, bild 7" loading="lazy"></div>
+    <span class="state">Såld</span>
+    <button type="button" class="gal-btn prev" data-prev aria-label="Föregående bild"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button type="button" class="gal-btn next" data-next aria-label="Nästa bild"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+    <span class="gal-count" data-count>1 / 7</span>
+  </div>
+  <div class="bike-b">
+    <div class="row"><h3>Yosemite vardagscykel</h3><span class="pr">999 kr</span></div>
+    <p class="meta">26” · Mycket gott skick · Sunnersta, Uppsala</p>
+    <p class="intro">Yosemite i fint bruksskick – perfekt som vardagscykel, skolcykel eller för enklare motionsrundor. Rullar fint, växlar bra och bromsar som den ska.</p>
+    <details class="bike-more"><summary>Vad som är gjort<span class="pm" aria-hidden="true"></span></summary><h4 class="lh">Nyligen utfört</h4><ul><li>Nytt framdäck och ny slang fram</li><li>Växlar justerade</li><li>Bromsar kontrollerade och justerade</li><li>Kedja rengjord och smord</li><li>Allmänt genomgången</li></ul><h4 class="lh">Utrustning</h4><ul><li>6 växlar (Shimano)</li><li>Pakethållare</li><li>Framkorg</li><li>Stänkskärmar fram och bak</li><li>Ringklocka</li><li>Stöd</li></ul><p class="bnote">Mindre bruksspår och lite ytrost på vissa detaljer med tanke på åldern, men inget som påverkar funktionen.</p></details>
+    <p class="bike-f muted">Såld. Nya cyklar läggs upp löpande.</p>
+  </div>
+</article><article class="bike sold" id="merida-2670">
+  <div class="gal" data-car>
+    <div class="gal-track" data-track tabindex="0" aria-label="Bilder på Merida 2670"><img src="img/cyklar/bike5-1.jpg" alt="Merida 2670, bild 1" loading="lazy"><img src="img/cyklar/bike5-2.jpg" alt="Merida 2670, bild 2" loading="lazy"><img src="img/cyklar/bike5-3.jpg" alt="Merida 2670, bild 3" loading="lazy"><img src="img/cyklar/bike5-4.jpg" alt="Merida 2670, bild 4" loading="lazy"><img src="img/cyklar/bike5-5.jpg" alt="Merida 2670, bild 5" loading="lazy"><img src="img/cyklar/bike5-6.jpg" alt="Merida 2670, bild 6" loading="lazy"><img src="img/cyklar/bike5-7.jpg" alt="Merida 2670, bild 7" loading="lazy"></div>
+    <span class="state">Såld</span>
+    <button type="button" class="gal-btn prev" data-prev aria-label="Föregående bild"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button type="button" class="gal-btn next" data-next aria-label="Nästa bild"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+    <span class="gal-count" data-count>1 / 7</span>
+  </div>
+  <div class="bike-b">
+    <div class="row"><h3>Merida 2670</h3><span class="pr">999 kr</span></div>
+    <p class="meta">26” · Gott skick · Sävja, Uppsala</p>
+    <p class="intro">Merida 2670 i bra bruksskick – perfekt som vardagscykel, pendlarcykel eller för enklare skogsvägar. Rullar fint, bromsar bra och växlar som den ska.</p>
+    <details class="bike-more"><summary>Vad som är gjort<span class="pm" aria-hidden="true"></span></summary><h4 class="lh">Nyligen utfört</h4><ul><li>Nytt framdäck</li><li>Nya bromsbelägg fram och bak</li><li>Nya handtag</li><li>Ny växelvajer</li><li>Växlarna justerade och genomgångna</li><li>Allmänt servad och kontrollerad</li></ul><h4 class="lh">Utrustning</h4><ul><li>Pakethållare</li><li>Stänkskärmar</li><li>Ringklocka</li><li>Stöd</li></ul><p class="bnote">Några kosmetiska märken och lite ytrost med tanke på åldern, men inget som påverkar funktionen. Växelreglaget är lagat med silvertejp – inte det snyggaste, men fullt funktionellt.</p></details>
+    <p class="bike-f muted">Såld. Nya cyklar läggs upp löpande.</p>
+  </div>
+</article></div>
+  <div class="refer refer-w">
+    <div><p class="kick">Inget som passar?</p><h2>Letar du efter något specifikt – eller vill du sälja din cykel?</h2>
+    <p>Vi köper begagnade cyklar och har ofta fler på gång än det som syns här. Hör av dig så berättar vi vad vi har.</p></div>
+    <div class="btns"><a class="btn btn-ink" href="tel:+46706828845">Ring 070-682 88 45</a><a class="btn btn-line" href="mailto:hemmacykel@gmail.com">Mejla oss</a></div>
+  </div>
+  <p class="fine">Cyklarna säljs som privatköp. Du har möjlighet att inspektera och provköra cykeln innan köpet genomförs. Läs mer i <a href="villkor.html">användarvillkoren</a>.</p>
 </div></section>
 
 <section class="sec" id="fragor"><div class="wrap faq">
@@ -139,7 +275,7 @@
 </main>
 <section class="cta"><div class="wrap cta-in">
   <div><h2>Redo att få cykeln fixad?</h2><p>Boka en tid och få vardagen att rulla igen. Vi kommer till dig – vardagar 15–19, helger 9–19.</p></div>
-  <div class="btns"><a class="btn btn-lime" href="boka.html">Boka service <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="btn btn-ghost" href="tel:+46706828845">Ring 070-682 88 45</a></div>
+  <div class="btns"><a class="btn btn-lime" href="#boka">Boka service <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="btn btn-ghost" href="tel:+46706828845">Ring 070-682 88 45</a></div>
 </div></section>
 <footer class="foot"><div class="wrap">
   <div class="foot-top">
@@ -149,8 +285,8 @@
       <a class="foot-rate" href="https://maps.google.com/?cid=1143771656914339290" target="_blank" rel="noopener"><span class="st">★★★★★</span> 5,0 på Google · 13 omdömen</a>
     </div>
     <div><h4>Kontakt</h4><ul><li><a href="tel:+46706828845">070-682 88 45</a></li><li><a href="mailto:hemmacykel@gmail.com">hemmacykel@gmail.com</a></li><li>Almstigen 30, 756 53 Uppsala</li><li>Vardagar 15–19, helger 9–19</li></ul></div>
-    <div><h4>Sidor</h4><ul><li><a href="boka.html">Boka service</a></li><li><a href="#tjanster">Tjänster och priser</a></li>
-      <li><a href="#omdomen">Omdömen</a></li><li><a href="cyklar.html">Cyklar till salu</a></li><li><a href="#fragor">Vanliga frågor</a></li></ul></div>
+    <div><h4>Sidor</h4><ul><li><a href="#boka">Boka service</a></li><li><a href="#tjanster">Tjänster och priser</a></li>
+      <li><a href="#omdomen">Omdömen</a></li><li><a href="#cyklar">Cyklar till salu</a></li><li><a href="#fragor">Vanliga frågor</a></li></ul></div>
     <div><h4>Juridiskt</h4><ul><li><a href="integritetspolicy.html">Integritetspolicy</a></li><li><a href="villkor.html">Användarvillkor</a></li><li><a href="cookies.html">Cookie-policy</a></li></ul></div>
   </div>
   <p class="foot-bot">© 2026 Hemmacykel. Alla rättigheter förbehållna. Hobbyverksamhet.</p>

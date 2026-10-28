@@ -14,7 +14,7 @@ Designen bygger på förslag 7 i [`design/forslag/`](design/forslag/) ("Inramad 
 Slogan: **”Få vardagen att rulla igen.”** – rubriken i heron, återkommer i avslutningen.
 
 [`Hemmacykel-ny-hemsida.pdf`](Hemmacykel-ny-hemsida.pdf) är ett förslag att skicka till kunden: försättsblad,
-startsidan, mobilvyer, bokningen och cyklar till salu, renderat direkt från sajten i `docs/`.
+hela startsidan (med bokning och cyklar till salu) och mobilvyer, renderat direkt från sajten i `docs/`.
 
 ## Designförslag
 
@@ -35,11 +35,20 @@ och hämtar priser, omdömen, FAQ och cyklar från `scripts/build.py`.
 Allt ligger i [`docs/`](docs/) och behöver inga verktyg – öppna `docs/index.html` i en webbläsare.
 Mappen kan publiceras direkt med GitHub Pages (Settings → Pages → `main` / `docs`) eller valfritt webbhotell.
 
-- `index.html` – startsidan: hero med priskalkylator, tjänster och priser, servicepaket, så funkar det, om oss,
-  **omdömen** (Google-betyg + kundcitat), tipsa en kompis, cyklar till salu, FAQ
-- `boka.html` – bokning i tre steg med prisberäkning och veckokalender
-- `cyklar.html` – begagnade cyklar med bildgalleri per cykel
-- `integritetspolicy.html`, `villkor.html`, `cookies.html`, `404.html`
+Allt ligger på **en sida**, `index.html`, i den här ordningen:
+
+1. Hero med priskalkylator (`#`)
+2. Tjänster och priser (`#tjanster`), servicepaket (`#paket`), så funkar det (`#sa-funkar-det`)
+3. **Bokning** i tre steg med prisberäkning och veckokalender (`#boka`)
+4. **Omdömen** (`#omdomen`), om oss (`#om-oss`), tipsa en kompis
+5. **Cyklar till salu** med bildgalleri per cykel (`#cyklar`, varje cykel har ett eget ankare, t.ex. `#merida-2670`)
+6. Vanliga frågor (`#fragor`)
+
+Kalkylatorn, tjänstekorten och paketknapparna fyller i bokningen och scrollar ner till den utan att ladda om
+sidan. `boka.html` och `cyklar.html` finns kvar bara som vidarebefordran till `index.html#boka` respektive
+`#cyklar`, så gamla länkar (även med `?tjanst=…&typ=…`) fortsätter fungera.
+
+Separata sidor finns bara för `integritetspolicy.html`, `villkor.html`, `cookies.html` och `404.html`.
 
 ## Ändra innehåll
 
