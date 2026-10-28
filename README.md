@@ -3,16 +3,16 @@
 Ny webbplats för [Hemmacykel](https://hemmacykel.se/), mobil cykelverkstad i Uppsala. Allt innehåll, alla priser,
 omdömen och bilder är hämtade från den nuvarande sajten (se [`scrape/`](scrape/)).
 
-Designen blandar två av våra tidigare sajter:
+Designen är redaktionell och stram:
 
-- **Ängö Entreprenad** (`angoentreprenad`): Outfit + DM Sans, eyebrows med accentstreck, tjänstekort med pil,
-  statistikrad, foto med förskjuten färgplatta, FAQ i två spalter, CTA-band med streckad kant, mörk footer.
-- **Bloms El & Data** (`Bloms-el-och-data`): fotohero med kort som överlappar nedre kanten, solid toppbar i
-  varumärkesfärgen, mer "koncern"-känsla.
+- Ett typsnitt, **Geist** (Geist Mono för små etiketter och priser), stor rubriktypografi med tät spärrning.
+- 12-kolumners grid där varje sektion har etikett till vänster och innehåll till höger, hårlinjer i stället för
+  kort, skuggor och ikonrutor. Inga scroll-animationer.
+- Varm off-white bakgrund, skogsgrönt från Hemmacykels logga för de mörka partierna (om oss, slut-CTA, footer)
+  och deras lime (`#6fd439`) bara på knappar och små markeringar.
+- Tjänster och priser är en enda lista; på desktop byter bilden bredvid när man pekar på en rad.
 
-Färgerna kommer från Hemmacykels egen logga/favicon (skogsgrön + cream) med deras lime (`#6fd439`) som accent.
-
-Slogan: **”Få vardagen att rulla igen.”** – i heron, footern och CTA-bandet.
+Slogan: **”Få vardagen att rulla igen.”** – rubriken i heron, återkommer i slut-CTA:n.
 
 [`Hemmacykel-ny-hemsida.pdf`](Hemmacykel-ny-hemsida.pdf) är ett förslag att skicka till kunden: försättsblad,
 startsidan, mobilvyer, bokningen och cyklar till salu, renderat direkt från sajten i `docs/`.
@@ -22,8 +22,8 @@ startsidan, mobilvyer, bokningen och cyklar till salu, renderat direkt från saj
 Allt ligger i [`docs/`](docs/) och behöver inga verktyg – öppna `docs/index.html` i en webbläsare.
 Mappen kan publiceras direkt med GitHub Pages (Settings → Pages → `main` / `docs`) eller valfritt webbhotell.
 
-- `index.html` – startsidan: hero, tjänster, om oss, servicepaket, så funkar det, prislista,
-  **omdömen** (Google-betyg + kundcitat i karusell), tipsa en kompis, cyklar till salu, FAQ
+- `index.html` – startsidan: hero, tjänster och priser, servicepaket, så funkar det, om oss,
+  **omdömen** (Google-betyg + kundcitat), tipsa en kompis, cyklar till salu, FAQ
 - `boka.html` – bokning i tre steg med prisberäkning och veckokalender
 - `cyklar.html` – begagnade cyklar med bildgalleri per cykel
 - `integritetspolicy.html`, `villkor.html`, `cookies.html`, `404.html`

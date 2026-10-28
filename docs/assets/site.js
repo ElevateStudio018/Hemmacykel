@@ -14,27 +14,30 @@
     burger.addEventListener('click', () => set(burger.getAttribute('aria-expanded') !== 'true'));
     drawer.addEventListener('click', (e) => { if (e.target.closest('a')) set(false); });
     d.addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
-    matchMedia('(min-width: 1121px)').addEventListener('change', (e) => { if (e.matches) set(false); });
+    matchMedia('(min-width: 1101px)').addEventListener('change', (e) => { if (e.matches) set(false); });
   }
 
-  // Skugga på headern när man scrollat
+  // Linje under headern när man scrollat
   const hdr = d.querySelector('.site-h');
   const onScroll = () => hdr && hdr.classList.toggle('scrolled', scrollY > 8);
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Scroll-reveal
-  const rv = d.querySelectorAll('.rv');
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((es) => es.forEach((en) => {
-      if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
-    }), { rootMargin: '0px 0px -6% 0px' });
-    rv.forEach((el) => io.observe(el));
-  } else {
-    rv.forEach((el) => el.classList.add('on'));
+  // Tjänstelistan: bilden bredvid följer raden man pekar på
+  const fig = d.querySelector('.svc-fig');
+  if (fig) {
+    const rows = d.querySelectorAll('[data-svc]');
+    const show = (v) => {
+      fig.querySelectorAll('img').forEach((img) => img.classList.toggle('on', img.dataset.for === v));
+      rows.forEach((r) => r.classList.toggle('on', r.dataset.svc === v));
+    };
+    rows.forEach((r) => {
+      r.addEventListener('mouseenter', () => show(r.dataset.svc));
+      r.addEventListener('focus', () => show(r.dataset.svc));
+    });
   }
 
-  // Karuseller: omdömen och bildgallerier
+  // Bildgallerier
   d.querySelectorAll('[data-car]').forEach((root) => {
     const track = root.querySelector('[data-track]');
     if (!track) return;
