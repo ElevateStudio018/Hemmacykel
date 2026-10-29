@@ -6,6 +6,13 @@ visar samma sak som sajten. Bilder och bokning länkar till ../../docs/.
 import importlib.util
 from pathlib import Path
 
+# Elevate Studio's credit under every footer: the mark and the name, the whole of it one link to elevatestudio.nu.
+ELEVATE_CREDIT = '''<!-- elevate-credit -->
+<style>.elevate-credit{max-width:1240px;margin:24px auto 0;padding:20px 16px 0;border-top:1px solid rgba(128,128,128,.25);display:flex;justify-content:center;box-sizing:border-box}.elevate-credit a{display:inline-flex;align-items:center;gap:8px;padding:8px 0;font:inherit;font-size:13px;line-height:1;color:inherit;opacity:.55;text-decoration:none;transition:opacity .2s}.elevate-credit a:hover,.elevate-credit a:focus-visible{opacity:1}.elevate-credit svg{width:16px;height:16px;flex:none;display:block}@media(min-width:1024px){.elevate-credit a{font-size:14px}}</style>
+<div class="elevate-credit"><a href="https://elevatestudio.nu" target="_blank" rel="noopener"><svg viewBox="0 0 1884.3 1353.9" aria-hidden="true"><path d="M0.0 1353.9 L1218.7 0.0 L1218.7 329.1 L479.7 1136.4 L786.7 1132.4 L1215.5 687.4 L1884.3 1349.9 L1590.1 1349.9 L1218.6 994.7 L865.4 1349.9Z" fill="currentColor"/></svg>Byggd av Elevate Studio</a></div>
+'''
+
+
 OUT = Path(__file__).parent
 ROOT = OUT.parent.parent
 spec = importlib.util.spec_from_file_location("site", ROOT / "scripts" / "build.py")
@@ -101,7 +108,7 @@ def sections(about_dark=True):
   <div class="qa">{faq}</div>
 </div></section>
 <section class="cta"><div class="wrap"><div><h2>Redo att få cykeln fixad?</h2><p>Boka en tid – vi kommer till dig.</p></div><div class="btns">{BOOK}{TEL}</div></div></section>
-<footer class="foot"><div class="wrap"><span>© 2026 Hemmacykel · {S.STREET}, {S.ZIP_CITY} · Hobbyverksamhet</span><span><a href="tel:{S.TEL}">{S.PHONE}</a> · <a href="mailto:{S.MAIL}">{S.MAIL}</a></span></div></footer>'''
+<footer class="foot"><div class="wrap"><span>© 2026 Hemmacykel · {S.STREET}, {S.ZIP_CITY} · Hobbyverksamhet</span><span><a href="tel:{S.TEL}">{S.PHONE}</a> · <a href="mailto:{S.MAIL}">{S.MAIL}</a></span></div>{ELEVATE_CREDIT}</footer>'''
 
 
 BASE = """
