@@ -61,7 +61,7 @@ def sections(about_dark=True):
     reviews = "".join(f'<figure><span class="st">★★★★★</span><blockquote>”{e(t)}”</blockquote><figcaption><b>{e(n)}</b> · Google</figcaption></figure>'
                       for n, t in S.REVIEWS[:6])
     bikes = "".join(
-        f'''<a class="{"sold" if b["sold"] else ""}" href="../../docs/cyklar.html#{b["id"]}"><span class="ph"><img src="{IMG}cyklar/{b["images"][0]}" alt="{e(b["title"])}" loading="lazy">
+        f'''<a class="{"sold" if b["sold"] else ""}" href="../../docs/{b["file"]}"><span class="ph"><img src="{IMG}cyklar/{b["images"][0]}" alt="{e(b["title"])}" loading="lazy">
 <span class="state">{"Såld" if b["sold"] else "Till salu"}</span></span><span class="row"><b>{e(b["title"])}</b><span class="pr">{kr(b["price"])}</span></span><small>{e(b["size"])} · {e(b["condition"])}</small></a>'''
         for b in S.BIKES[:3])
     faq = "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in S.FAQ[:6])

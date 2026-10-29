@@ -14,7 +14,7 @@ Designen bygger på förslag 7 i [`design/forslag/`](design/forslag/) ("Inramad 
 Slogan: **”Få vardagen att rulla igen.”** – rubriken i heron, återkommer i avslutningen.
 
 [`Hemmacykel-ny-hemsida.pdf`](Hemmacykel-ny-hemsida.pdf) är ett förslag att skicka till kunden: försättsblad,
-hela startsidan (med bokning och cyklar till salu) och mobilvyer, renderat direkt från sajten i `docs/`.
+startsidan, mobilvyer, en tjänstesida, servicepaketen, cyklar till salu och en cykelsida, renderat direkt från `docs/`.
 
 ## Designförslag
 
@@ -34,21 +34,28 @@ och hämtar priser, omdömen, FAQ och cyklar från `scripts/build.py`.
 
 Allt ligger i [`docs/`](docs/) och behöver inga verktyg – öppna `docs/index.html` i en webbläsare.
 Mappen kan publiceras direkt med GitHub Pages (Settings → Pages → `main` / `docs`) eller valfritt webbhotell.
+Alla sidor har samma meny (Tjänster med rullgardin, Priser, Cyklar till salu, Omdömen, Om oss, Kontakt) och sidfot.
 
-Allt ligger på **en sida**, `index.html`, i den här ordningen:
+| Sida | Innehåll |
+| --- | --- |
+| `index.html` | Hero med priskalkylator, tjänster, paket, så funkar det, om oss, omdömen, tipsa en kompis, cyklar, frågor |
+| `tjanster.html` | Alla tjänster, servicepaket, tillägg per cykeltyp, så funkar det |
+| `tjanst-punktering.html`, `tjanst-dackbyte.html`, `tjanst-kedjebyte.html`, `tjanst-bromsar.html` | En sida per tjänst: tecken på att det är dags, vad som ingår, pris med bokningsknapp, frågor, fler tjänster |
+| `tjanst-service.html` | Servicepaketen med jämförelsetabell |
+| `tjanst-elcykel.html` | Elcykel och specialcyklar med tillägg per cykeltyp |
+| `priser.html` | Hela prislistan med tillägg och reseavgift, priskalkylator, hur betalningen går till |
+| `boka.html` | Bokning i tre steg med prisberäkning och veckokalender |
+| `cyklar.html` | Cyklar till salu – sålda visas suddiga med en "Såld"-märkning |
+| `cykel-*.html` | En sida per cykel: bildgalleri med miniatyrer, fakta, vad som är gjort, utrustning, kontakt för köp |
+| `om-oss.html` | Grundarna, varför Hemmacykel finns, vad de står för, hur de jobbar |
+| `omdomen.html` | Snittbetyg, vad kunderna nämner, alla omdömen, länk för att lämna omdöme |
+| `fragor.html` | Alla frågor i fem kategorier |
+| `kontakt.html` | Telefon, e-post, adress, tider, kontaktformulär (öppnar mejl), områden |
+| `integritetspolicy.html`, `villkor.html`, `cookies.html`, `404.html` | Juridik och felsida |
 
-1. Hero med priskalkylator (`#`)
-2. Tjänster och priser (`#tjanster`), servicepaket (`#paket`), så funkar det (`#sa-funkar-det`)
-3. **Bokning** i tre steg med prisberäkning och veckokalender (`#boka`)
-4. **Omdömen** (`#omdomen`), om oss (`#om-oss`), tipsa en kompis
-5. **Cyklar till salu** med bildgalleri per cykel (`#cyklar`, varje cykel har ett eget ankare, t.ex. `#merida-2670`)
-6. Vanliga frågor (`#fragor`)
-
-Kalkylatorn, tjänstekorten och paketknapparna fyller i bokningen och scrollar ner till den utan att ladda om
-sidan. `boka.html` och `cyklar.html` finns kvar bara som vidarebefordran till `index.html#boka` respektive
-`#cyklar`, så gamla länkar (även med `?tjanst=…&typ=…`) fortsätter fungera.
-
-Separata sidor finns bara för `integritetspolicy.html`, `villkor.html`, `cookies.html` och `404.html`.
+Priskalkylatorn (startsidan och prissidan), tjänstesidornas prisrader och paketknapparna skickar valen till
+`boka.html?tjanst=…&typ=…`, som förväljer dem. Gamla länkar från ensidesversionen (`index.html#boka`,
+`index.html#merida-2670` osv.) skickas vidare till rätt sida.
 
 ## Ändra innehåll
 
@@ -59,8 +66,11 @@ python3 scripts/build.py
 ```
 
 - **Priser, tjänster, paket, FAQ, omdömen, kontaktuppgifter**: konstanterna högst upp i `build.py`.
+- **Tjänstesidorna**: `SERVICES` i `build.py`. Texterna om tecken och vad som ingår är skrivna utifrån
+  hemmacykel.se och bör stämmas av med Hemmacykel innan lansering.
 - **Cyklar till salu**: [`scripts/cyklar.json`](scripts/cyklar.json). Lägg bilderna i `docs/img/cyklar/`,
-  sätt `"sold": true` när en cykel är såld. Cyklar till salu visas först.
+  sätt `"sold": true` när en cykel är såld – då blir bilderna suddiga och märks "Såld". Varje cykel får en
+  egen sida (`cykel-<id>.html`). Cyklar till salu visas först.
 - **Stil**: `docs/assets/site.css`. **Meny, bildgallerier, bokning**: `docs/assets/site.js`.
 
 ## Att tänka på innan lansering

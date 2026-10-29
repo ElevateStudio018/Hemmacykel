@@ -14,7 +14,7 @@
     burger.addEventListener('click', () => set(burger.getAttribute('aria-expanded') !== 'true'));
     drawer.addEventListener('click', (e) => { if (e.target.closest('a')) set(false); });
     d.addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
-    matchMedia('(min-width: 1101px)').addEventListener('change', (e) => { if (e.matches) set(false); });
+    matchMedia('(min-width: 1081px)').addEventListener('change', (e) => { if (e.matches) set(false); });
   }
 
   // Linje under headern när man scrollat
@@ -23,10 +23,7 @@
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  const form = d.getElementById('booking');
-  const book = form ? booking(form) : null;
-
-  // Priskalkylatorn i heron: tjänst + cykeltyp ger uppskattat pris, "Boka" fyller i bokningen längre ner
+  // Priskalkylatorn: tjänst + cykeltyp ger uppskattat pris, "Boka" skickar valen till bokningssidan
   d.querySelectorAll('[data-calc]').forEach((calc) => {
     const svc = calc.querySelector('[name=tjanst]');
     const typ = calc.querySelector('[name=typ]');
@@ -37,20 +34,8 @@
       out.textContent = price ? (price + add).toLocaleString('sv-SE') + ' kr' : 'Prisförslag';
     };
     calc.addEventListener('change', sync);
-    calc.addEventListener('submit', (e) => {
-      if (!book) return;
-      e.preventDefault();
-      book.pick([svc.value], typ.value, true);
-    });
     sync();
   });
-
-  // Knappar som "Boka Cykelcheck" väljer tjänsten i bokningen och scrollar dit
-  d.querySelectorAll('[data-pick]').forEach((a) => a.addEventListener('click', (e) => {
-    if (!book) return;
-    e.preventDefault();
-    book.pick([a.dataset.pick]);
-  }));
 
   // Bildgallerier
   d.querySelectorAll('[data-car]').forEach((root) => {
@@ -59,20 +44,46 @@
     const prev = root.querySelector('[data-prev]');
     const next = root.querySelector('[data-next]');
     const count = root.querySelector('[data-count]');
+    const thumbs = [...root.querySelectorAll('[data-thumb]')];
     const items = [...track.children];
     const step = () => (items[1] ? items[1].offsetLeft - items[0].offsetLeft : track.clientWidth);
     const sync = () => {
       const max = track.scrollWidth - track.clientWidth - 2;
       if (prev) prev.disabled = track.scrollLeft <= 2;
       if (next) next.disabled = track.scrollLeft >= max;
-      if (count) count.textContent = `${Math.min(items.length, Math.round(track.scrollLeft / step()) + 1)} / ${items.length}`;
+      const i = Math.min(items.length - 1, Math.round(track.scrollLeft / step()));
+      if (count) count.textContent = `${i + 1} / ${items.length}`;
+      thumbs.forEach((t, j) => t.setAttribute('aria-current', String(j === i)));
     };
+    thumbs.forEach((t, j) => t.addEventListener('click', () => track.scrollTo({ left: j * step(), behavior: 'smooth' })));
     if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
     if (next) next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
     track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
     addEventListener('resize', sync);
     sync();
   });
+
+  // Kontaktformulär: öppnar ett ifyllt mejl
+  d.querySelectorAll('form[data-mailto]').forEach((f) => {
+    const err = f.querySelector('.bk-err');
+    f.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const req = [...f.querySelectorAll('[required]')].find((el) => !el.value.trim() || (el.type === 'email' && !el.checkValidity()));
+      if (req) {
+        err.textContent = 'Fyll i ' + req.closest('label').querySelector('span').textContent.toLowerCase() + '.';
+        req.focus();
+        return;
+      }
+      err.textContent = '';
+      const v = (n) => f.elements[n].value.trim();
+      const body = `${v('meddelande')}\n\n${v('namn')}\n${v('telefon')}\n${v('epost')}`;
+      f.querySelector('.form-done').hidden = false;
+      location.href = `mailto:${f.dataset.mailto}?subject=${encodeURIComponent('Fråga från hemsidan – ' + v('namn'))}&body=${encodeURIComponent(body)}`;
+    });
+  });
+
+  const form = d.getElementById('booking');
+  if (form) booking(form);
 
   function booking(form) {
     const MAIL = form.dataset.mail;
@@ -293,26 +304,5 @@
     });
 
     update();
-
-    return {
-      pick(values, typ, replace) {
-        if (replace) form.querySelectorAll('input[name=svc]').forEach((i) => { i.checked = false; });
-        values.forEach((v) => {
-          const el = form.querySelector(`input[name="svc"][value="${CSS.escape(v)}"]`);
-          if (el) el.checked = true;
-        });
-        const t = typ && form.querySelector(`input[name="typ"][value="${CSS.escape(typ)}"]`);
-        if (t) t.checked = true;
-        if (!done.hidden) {
-          done.hidden = true;
-          form.querySelector('.bk-steps').hidden = false;
-          form.querySelector('.bk-nav').hidden = false;
-        }
-        update();
-        show(0);
-        const sec = d.getElementById('boka') || form;
-        sec.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-      },
-    };
   }
 })();
